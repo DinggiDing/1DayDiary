@@ -144,12 +144,12 @@
 		7E7D54D82C05DF8D0022A7D3 /* NotoSansKR-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.ttf"; sourceTree = "<group>"; };
 		7E7D54DA2C05DFA40022A7D3 /* NotoSansKR-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.ttf"; sourceTree = "<group>"; };
 		7E7D54DB2C05DFA40022A7D3 /* NotoSansKR-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.ttf"; sourceTree = "<group>"; };
-		7E87AA5F2BEAA19A002648EA /* AppleSignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSignView.swift; sourceTree = "<group>"; };
-		7E87AA612BEAA248002648EA /* AuthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedView.swift; sourceTree = "<group>"; };
-		7E87AA652BEAA456002648EA /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
-		7E87AA682BEAA659002648EA /* LastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastView.swift; sourceTree = "<group>"; };
-		7E8C51952BF3E31600D5695B /* LastThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastThemeView.swift; sourceTree = "<group>"; };
-		7EA26ACA2C0C64BB00E1DAFC /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		7E87AA5F2BEAA19A002648EA /* AppleSignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppleSignView.swift; path = ../AppleSignView.swift; sourceTree = "<group>"; };
+		7E87AA612BEAA248002648EA /* AuthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthenticatedView.swift; path = ../AuthenticatedView.swift; sourceTree = "<group>"; };
+		7E87AA652BEAA456002648EA /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthenticationViewModel.swift; path = ../AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		7E87AA682BEAA659002648EA /* LastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LastView.swift; path = ../LastView.swift; sourceTree = "<group>"; };
+		7E8C51952BF3E31600D5695B /* LastThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LastThemeView.swift; path = ../LastThemeView.swift; sourceTree = "<group>"; };
+		7EA26ACA2C0C64BB00E1DAFC /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WebView.swift; path = ../WebView.swift; sourceTree = "<group>"; };
 		7EAFC55A2B9B5AF6002133B4 /* EditView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView2.swift; sourceTree = "<group>"; };
 		7EB862F92B9592D80079AE88 /* SUIT-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-Regular.otf"; sourceTree = "<group>"; };
 		7EBB14352B8CC4AA00A3C4DB /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -235,7 +235,7 @@
 				7E163B2B2BE76DD60019609D /* Diary.entitlements */,
 				7E08A1AA2C01CD3600E10A1D /* zoomviewer */,
 				7EE31B6A2B90B8C500F5A287 /* Font */,
-				7E87AA672BEAA4BA002648EA /* Auth */,
+				7E34CAC92C148699008E535C /* New Group */,
 				7E2611452BB4438C00D3BEA5 /* TabView */,
 				7EE31B752B90B94000F5A287 /* Info.plist */,
 				7E69C97D2BE8E0D300C0282E /* GoogleService-Info.plist */,
@@ -300,6 +300,19 @@
 			path = TabView;
 			sourceTree = "<group>";
 		};
+		7E34CAC92C148699008E535C /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				7E87AA5F2BEAA19A002648EA /* AppleSignView.swift */,
+				7E87AA612BEAA248002648EA /* AuthenticatedView.swift */,
+				7E87AA652BEAA456002648EA /* AuthenticationViewModel.swift */,
+				7E87AA682BEAA659002648EA /* LastView.swift */,
+				7E8C51952BF3E31600D5695B /* LastThemeView.swift */,
+				7EA26ACA2C0C64BB00E1DAFC /* WebView.swift */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		7E5CA7A72BB58DC500F2FEAB /* MemoryView */ = {
 			isa = PBXGroup;
 			children = (
@@ -320,19 +333,6 @@
 				7E763EF22B935BED00A1BF47 /* Diarydb.xcdatamodeld */,
 			);
 			name = DB_core;
-			sourceTree = "<group>";
-		};
-		7E87AA672BEAA4BA002648EA /* Auth */ = {
-			isa = PBXGroup;
-			children = (
-				7E87AA5F2BEAA19A002648EA /* AppleSignView.swift */,
-				7E87AA612BEAA248002648EA /* AuthenticatedView.swift */,
-				7E87AA652BEAA456002648EA /* AuthenticationViewModel.swift */,
-				7E87AA682BEAA659002648EA /* LastView.swift */,
-				7E8C51952BF3E31600D5695B /* LastThemeView.swift */,
-				7EA26ACA2C0C64BB00E1DAFC /* WebView.swift */,
-			);
-			name = Auth;
 			sourceTree = "<group>";
 		};
 		7EAFC5562B9B194B002133B4 /* Mediapicker */ = {

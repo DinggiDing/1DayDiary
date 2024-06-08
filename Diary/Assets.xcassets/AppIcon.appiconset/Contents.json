@@ -1,0 +1,14 @@
+{
+  "images" : [
+    {
+      "filename" : "Default_1_day_diary_ios_application_app_icon_1DD_classic_diary_3.jpg",
+      "idiom" : "universal",
+      "platform" : "ios",
+      "size" : "1024x1024"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

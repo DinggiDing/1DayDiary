@@ -87,7 +87,7 @@ struct ContentView: View {
                                             .foregroundColor(Color("gray6"))
                                             .aspectRatio(contentMode: .fit)
                                             .frame(width: 5, height: 5)
-                                        Text(Date.now, format: .dateTime.day(.twoDigits).month(.twoDigits))
+                                        Text(checkIfDateIsWithinRangeSave(date: Date.now), format: .dateTime.day(.twoDigits).month(.twoDigits))
                                             .font(.custom("SUIT-Semibold", size: 16))
                                             .foregroundStyle(.accent)
                                         

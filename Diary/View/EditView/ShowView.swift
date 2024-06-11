@@ -85,15 +85,6 @@ struct ShowView: View {
                             .scrollIndicators(.hidden)
                             .frame(height: CGFloat(image_height))
                                 .padding(.leading, AppConfig.homeWidth*0.08)
-//                                .onTapGesture {
-//                                    if image_ratio == 0.8 {
-//                                        image_ratio = 1.0
-//                                        image_height = 200
-//                                    } else {
-//                                        image_ratio = 0.8
-//                                        image_height = 150
-//                                    }
-//                                }
                         }
                         
                         HStack {

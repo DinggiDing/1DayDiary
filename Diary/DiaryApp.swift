@@ -25,28 +25,6 @@ struct DiaryApp: App {
         WindowGroup {
             NavigationView {
                 AuthenticatedView {
-//                    HStack {
-//                        VStack {
-//                            Spacer()
-//                            HStack {
-//                                Text("Welcome to")
-//                                    .font(.custom("SUIT-Medium", size: 36))
-//                                    .padding()
-//                                Spacer()
-//                            }
-//                            HStack {
-//                                Text("1DayDiary")
-//                                    .font(.custom("SUIT-Bold", size: 46))
-//                                Spacer()
-//
-//                            }
-//                            Spacer()
-//                            Spacer()
-//                            Spacer()
-//                        }
-//                        .foregroundStyle(.black)
-//                        Color(.accent).frame(width: AppConfig.homeWidth/8)
-//                    }
                     ZStack {
                         HStack {
                             Rectangle().frame(width: 1, alignment: .center).padding(.leading, 28)

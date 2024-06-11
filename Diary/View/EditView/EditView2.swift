@@ -74,7 +74,7 @@ struct EditView2: View {
                                         .frame(width: 5, height: 5)
                                     HStack {
                                         HStack(spacing: 5) {
-                                            Text(checkIfDateIsWithinRangeSave(date: Date.now), format: .dateTime.day(.twoDigits).month(.twoDigits))
+                                            Text(Date().checkDateWithinRange(date: Date.now), format: .dateTime.day(.twoDigits).month(.twoDigits))
                                                 .font(.SUIT_Regular)
                                                 .foregroundStyle(Color("gray3"))
                                                 .popoverTip(tip)
@@ -101,7 +101,8 @@ struct EditView2: View {
                                 HStack {
                                     Spacer()
                                     
-                                    TextField(formatDate(checkIfDateIsWithinRangeSave(date: Date.now)), text: $title, axis: .vertical)
+//                                    TextField(formatDate(checkIfDateIsWithinRangeSave(date: Date.now)), text: $title, axis: .vertical)
+                                    TextField(Date().formatDate(Date().checkDateWithinRange(date: Date.now), using: .month_day_text), text: $title, axis: .vertical)
                                         .font(.custom(titlefontvalue, size: 20))
                                         .frame(width: 280, alignment: .leading)
                                         .accentColor(.gray)
@@ -117,7 +118,6 @@ struct EditView2: View {
                                     Spacer()
                                 }
                                 
-                                //                            Spacer().frame(height:35)
                                 
                                 if !medias.isEmpty {
                                     ScrollView(.horizontal) {
@@ -161,7 +161,7 @@ struct EditView2: View {
         
                                         if maintext.isEmpty {
                                             VStack {
-                                                Text(formatDate(checkIfDateIsWithinRangeSave(date: Date.now)))
+                                                Text(Date().formatDate(Date().checkDateWithinRange(date: Date.now), using: .month_day_text))
                                                     .font(.custom(fontvalue, size: 16))
                                                     .lineSpacing(/*@START_MENU_TOKEN@*/10.0/*@END_MENU_TOKEN@*/)
                                                     .foregroundStyle(Color.gray.opacity(0.55))
@@ -227,14 +227,7 @@ struct EditView2: View {
                 }
                 ToolbarItemGroup(placement: .keyboard) {
                     HStack {
-//                        Button(action: {
-////                            self.saveTodo(title: title, date: Date.now, status: status.rawValue)
-//                            // Call a function to handle saving or further processing of the newTodo
-//                            // For example, you can pass it to a delegate or callback.
-//                        }, label: {
-//                            Image(systemName: "circle.righthalf.filled")
-//                                .foregroundStyle(.gray5)
-//                        })
+
                         Button(action: {
                             switch maintext_alignment {
                             case .leading:
@@ -244,9 +237,6 @@ struct EditView2: View {
                                 maintext_alignment = .trailing
                                 alignment_imagename = "text.alignright"
                             case .trailing:
-                                maintext_alignment = .leading
-                                alignment_imagename = "text.alignleft"
-                            default:
                                 maintext_alignment = .leading
                                 alignment_imagename = "text.alignleft"
                             }
@@ -287,38 +277,6 @@ struct EditView2: View {
 //        .navigationBarTitleDisplayMode(.inline)
         .navigationBarHidden(true)
     }
-    
-    private func formatDate(_ date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MM월 dd일 일기"
-        return formatter.string(from: date)
-    }
-    
-    private func formatDate2(_ date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .short
-        return formatter.string(from: date)
-    }
-    
-    private func checkIfDateIsWithinRangeSave(date: Date) -> Date {
-        
-        let calendar = Calendar.current
-        let components = calendar.dateComponents([.hour], from: Date.now)
-        let hour = components.hour ?? 0
-        
-        var startDate = Date()
-        if hour < 11 {
-            startDate = Calendar.current.date(byAdding: .day, value: -1, to: Date())!
-        }
 
-        return startDate
-    }
 }
 
-extension View {
-  func endTextEditing() {
-    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder),
-                                    to: nil, from: nil, for: nil)
-  }
-}

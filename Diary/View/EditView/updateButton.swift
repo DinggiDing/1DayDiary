@@ -93,7 +93,7 @@ struct updateButton: View {
         }
             .onEnded({ value in
                 Hpress.toggle()
-                self.updateTodo(title: title=="" ? formatDate(Date.now) : title, date: Date.now, status: status, image: image, todo: db, emotions: Int16(emotions), weathers: Int16(weathers), text_align: text_align, text_spacing: Int16(text_spacing))
+                self.updateTodo(title: title=="" ? Date().formatDate(Date.now, using: .month_day_text) : title, date: Date.now, status: status, image: image, todo: db, emotions: Int16(emotions), weathers: Int16(weathers), text_align: text_align, text_spacing: Int16(text_spacing))
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     Drops.show(drop)
                     donedone.toggle()
@@ -128,12 +128,5 @@ struct updateButton: View {
             print("whoops \(error.localizedDescription)")
         }
     }
-    
-    private func formatDate(_ date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MM월 dd일 일기"
-        return formatter.string(from: date)
-    }
-    
     
 }

@@ -330,12 +330,6 @@ struct EditTodayView: View {
         .navigationBarHidden(true)
     }
     
-    private func formatDate2(_ date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .short
-        return formatter.string(from: date)
-    }
 }
 
 

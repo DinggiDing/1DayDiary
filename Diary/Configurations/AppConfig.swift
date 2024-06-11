@@ -5,6 +5,8 @@
 //  Created by 성재 on 2/25/24.
 //
 
+// MARK: 글꼴 및 UI 사이즈
+
 import Foundation
 import SwiftUI
 

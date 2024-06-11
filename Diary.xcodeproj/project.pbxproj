@@ -319,13 +319,13 @@
 			isa = PBXGroup;
 			children = (
 				7EAFC55A2B9B5AF6002133B4 /* EditView2.swift */,
+				7E3827402BB9690700CCD7E6 /* EditTodayView.swift */,
+				7E638C8A2BB069AE0036B863 /* ShowView.swift */,
+				7EF9866E2BA5E3BE00A62A93 /* publishButton.swift */,
+				7ED620E42BEFC87F00F2398C /* updateButton.swift */,
 				7E2C3BC02BA0F20100543157 /* PopupBottomFirst.swift */,
 				7E32A6DD2BA4585D002B854C /* PopupBottomSecond.swift */,
 				7E0025662BA32305001FBF13 /* FavoriteBackyardTip.swift */,
-				7EF9866E2BA5E3BE00A62A93 /* publishButton.swift */,
-				7ED620E42BEFC87F00F2398C /* updateButton.swift */,
-				7E638C8A2BB069AE0036B863 /* ShowView.swift */,
-				7E3827402BB9690700CCD7E6 /* EditTodayView.swift */,
 			);
 			path = EditView;
 			sourceTree = "<group>";

@@ -24,37 +24,47 @@ struct PopupBottomFirst: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
-                Spacer()
-                Text("Weather")
-                    .foregroundColor(.black)
-                    .font(.custom("SUIT-Regular", size: 20))
-                
-                Spacer()
-                
-                HStack {
-                    Spacer()
-                    Spacer()
-                    LazyVGrid(columns: columns, spacing: 10) {
-                        ForEach(0..<5) { index in
-                            MainButton(imageName: Mockdata.iconImageNames[index], colorHex: "F3F2F7", text: Mockdata.textnames[index], didtap: didTap[index])
-                                .onTapGesture {
-                                    didTap = [false, false, false, false, false]
-                                    didTap[index] = true
-                                    ispreint = index + 1
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                                        gotosecond.toggle()
-                                    }
-                                }
-                        }
-                    }.padding(.horizontal, 50)
-                    Spacer()
-                    Spacer()
-                }
-                
-                Spacer()
-                
-            }.navigationDestination(isPresented: $gotosecond, destination: {
+            PopupBottomView(
+                title: "Weather",
+                items: Mockdata.textnames,
+                icons: Mockdata.iconImageNames,
+                didTap: $didTap,
+                columns: columns
+            ) { index in
+                handleTap(index: index)
+            }
+//            VStack {
+//                Spacer()
+//                Text("Weather")
+//                    .foregroundColor(.black)
+//                    .font(.custom("SUIT-Regular", size: 20))
+//                
+//                Spacer()
+//                
+//                HStack {
+//                    Spacer()
+//                    Spacer()
+//                    LazyVGrid(columns: columns, spacing: 10) {
+//                        ForEach(0..<5) { index in
+//                            MainButton(imageName: Mockdata.iconImageNames[index], colorHex: "F3F2F7", text: Mockdata.textnames[index], didtap: didTap[index])
+//                                .onTapGesture {
+//                                    didTap = [false, false, false, false, false]
+//                                    didTap[index] = true
+//                                    ispreint = index + 1
+//                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+//                                        gotosecond.toggle()
+//                                    }
+//                                }
+//                        }
+//                    }.padding(.horizontal, 50)
+//                    Spacer()
+//                    Spacer()
+//                }
+//                
+//                Spacer()
+//                
+//            }
+            .navigationDestination(isPresented: $gotosecond, destination: {
                 PopupBottomSecond(isPresented: $isPresented, ispreint2: $ispreint2)
             })
             .onAppear {
@@ -64,6 +74,15 @@ struct PopupBottomFirst: View {
             }
         }
     }
+    private func handleTap(index: Int) {
+        didTap = [false, false, false, false, false]
+        didTap[index] = true
+        ispreint = index + 1
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            gotosecond.toggle()
+        }
+    }
+
 }
 
 struct MainButton: View {
@@ -91,21 +110,29 @@ struct MainButton: View {
     }
 }
 
-struct IconButton: View {
-
-    var imageName: String
-    var color: Color
-    let imageWidth: CGFloat = 20
-    let buttonWidth: CGFloat = 45
-
-    var body: some View {
-        ZStack {
-            Color(red: 3, green: 3, blue: 3)
-            Image(systemName: imageName)
-                .frame(width: imageWidth, height: imageWidth)
-                .foregroundColor(color)
+@ViewBuilder
+func PopupBottomView(title: String, items: [String], icons: [String], didTap: Binding<[Bool]>, columns: [GridItem], onItemTap: @escaping (Int) -> Void) -> some View {
+    VStack {
+        Spacer()
+        Text(title)
+            .foregroundColor(.black)
+            .font(.custom("SUIT-Regular", size: 20))
+        
+        Spacer()
+        
+        HStack {
+            Spacer()
+            LazyVGrid(columns: columns, spacing: 10) {
+                ForEach(0..<items.count, id: \.self) { index in
+                    MainButton(imageName: icons[index], colorHex: "F3F2F7", text: items[index], didtap: didTap.wrappedValue[index])
+                        .onTapGesture {
+                            onItemTap(index)
+                        }
+                }
+            }.padding(.horizontal, 50)
+            Spacer()
         }
-        .frame(width: buttonWidth, height: buttonWidth)
-        .cornerRadius(buttonWidth / 2)
+        
+        Spacer()
     }
 }

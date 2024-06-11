@@ -80,7 +80,7 @@ struct publishButton: View {
         }
             .onEnded({ value in
                 Hpress.toggle()
-                self.saveTodo(title: title=="" ? formatDate(checkIfDateIsWithinRangeSave(date: Date.now)) : title, date: Date.now, status: status, image: image, emotions: Int16(emotions), weathers: Int16(weathers), text_align: text_align, text_spacing: Int16(text_spacing))
+                self.saveTodo(title: title=="" ? Date().formatDate(Date().checkDateWithinRange(date: Date.now), using: .month_day_text) : title, date: Date.now, status: status, image: image, emotions: Int16(emotions), weathers: Int16(weathers), text_align: text_align, text_spacing: Int16(text_spacing))
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     donedone.toggle()
                 }
@@ -93,8 +93,7 @@ struct publishButton: View {
         let todo = DB_core(context: self.viewContext)
         todo.id = UUID()
         todo.title = title
-        todo.date = checkIfDateIsWithinRangeSave(date: date)
-//        todo.date = date
+        todo.date = Date().checkDateWithinRange(date: date)
         todo.status = status
         todo.image = image
         todo.emotions = emotions
@@ -116,24 +115,5 @@ struct publishButton: View {
             print("whoops \(error.localizedDescription)")
         }
     }
-    
-    private func formatDate(_ date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MM월 dd일 일기"
-        return formatter.string(from: date)
-    }
-    
-    private func checkIfDateIsWithinRangeSave(date: Date) -> Date {
-        
-        let calendar = Calendar.current
-        let components = calendar.dateComponents([.hour], from: Date.now)
-        let hour = components.hour ?? 0
-        
-        var startDate = Date()
-        if hour < 11 {
-            startDate = Calendar.current.date(byAdding: .day, value: -1, to: Date())!
-        }
-
-        return startDate
-    }
+     
 }

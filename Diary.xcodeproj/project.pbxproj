@@ -69,6 +69,8 @@
 		7EC62A792C08B15A00DE49EE /* mongdol.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7EC62A782C08B15900DE49EE /* mongdol.ttf */; };
 		7EC62A7B2C08B9A200DE49EE /* SUITE-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7EC62A7A2C08B9A200DE49EE /* SUITE-Light.otf */; };
 		7EC62A7D2C08B9BD00DE49EE /* SUITE-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7EC62A7C2C08B9BD00DE49EE /* SUITE-Medium.otf */; };
+		7ECED34C2C18342D007C7998 /* DateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECED34B2C18342D007C7998 /* DateUtility.swift */; };
+		7ECED34E2C184748007C7998 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECED34D2C184748007C7998 /* Utility.swift */; };
 		7ED620E52BEFC87F00F2398C /* updateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED620E42BEFC87F00F2398C /* updateButton.swift */; };
 		7ED620E72BEFEC7800F2398C /* HighlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED620E62BEFEC7800F2398C /* HighlightView.swift */; };
 		7EE31B732B90B8F800F5A287 /* Arita-buriM.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7EE31B6E2B90B8F800F5A287 /* Arita-buriM.otf */; };
@@ -156,6 +158,8 @@
 		7EC62A782C08B15900DE49EE /* mongdol.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = mongdol.ttf; sourceTree = "<group>"; };
 		7EC62A7A2C08B9A200DE49EE /* SUITE-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUITE-Light.otf"; sourceTree = "<group>"; };
 		7EC62A7C2C08B9BD00DE49EE /* SUITE-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUITE-Medium.otf"; sourceTree = "<group>"; };
+		7ECED34B2C18342D007C7998 /* DateUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtility.swift; sourceTree = "<group>"; };
+		7ECED34D2C184748007C7998 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		7ED620E42BEFC87F00F2398C /* updateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updateButton.swift; sourceTree = "<group>"; };
 		7ED620E62BEFEC7800F2398C /* HighlightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightView.swift; sourceTree = "<group>"; };
 		7EE31B6D2B90B8F800F5A287 /* Arita-buriB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Arita-buriB.otf"; sourceTree = "<group>"; };
@@ -235,8 +239,8 @@
 				7E163B2B2BE76DD60019609D /* Diary.entitlements */,
 				7EE31B752B90B94000F5A287 /* Info.plist */,
 				7E34CAD72C148E5B008E535C /* GoogleService-Info.plist */,
-				7E08A1AA2C01CD3600E10A1D /* zoomviewer */,
 				7EE31B6A2B90B8C500F5A287 /* Font */,
+				7E08A1AA2C01CD3600E10A1D /* zoomviewer */,
 				7E34CACA2C148893008E535C /* Auth */,
 				7E1104E52B8B68280012DFD4 /* Configurations */,
 				7E34CACE2C1488FE008E535C /* DB_core */,
@@ -281,6 +285,8 @@
 				7E1104E62B8B683C0012DFD4 /* AppConfig.swift */,
 				7E32A6DF2BA4A132002B854C /* Mockdata2.swift */,
 				7E32A6E12BA4A7A7002B854C /* Mockdata.swift */,
+				7ECED34B2C18342D007C7998 /* DateUtility.swift */,
+				7ECED34D2C184748007C7998 /* Utility.swift */,
 			);
 			path = Configurations;
 			sourceTree = "<group>";
@@ -594,6 +600,7 @@
 				7EF9866F2BA5E3BE00A62A93 /* publishButton.swift in Sources */,
 				7EA26ACB2C0C64BB00E1DAFC /* WebView.swift in Sources */,
 				7E763EFF2B935CCC00A1BF47 /* DB_core+CoreDataClass.swift in Sources */,
+				7ECED34E2C184748007C7998 /* Utility.swift in Sources */,
 				7E26114B2BB4442000D3BEA5 /* MaterialTabBar.swift in Sources */,
 				7E1104E72B8B683C0012DFD4 /* AppConfig.swift in Sources */,
 				7EBB14362B8CC4AA00A3C4DB /* MainView.swift in Sources */,
@@ -607,6 +614,7 @@
 				7E1104BE2B8B64500012DFD4 /* ContentView.swift in Sources */,
 				7E87AA662BEAA456002648EA /* AuthenticationViewModel.swift in Sources */,
 				7E4027732BE3D68800EDBF53 /* MemoryDetailView.swift in Sources */,
+				7ECED34C2C18342D007C7998 /* DateUtility.swift in Sources */,
 				7E26114D2BB4444600D3BEA5 /* TabBarItem.swift in Sources */,
 				7E8C51962BF3E31600D5695B /* LastThemeView.swift in Sources */,
 				7E32A6E22BA4A7A7002B854C /* Mockdata.swift in Sources */,
@@ -778,7 +786,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Diary/Diary.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Diary/Preview Content\"";
 				DEVELOPMENT_TEAM = NANGSZJP26;
 				ENABLE_PREVIEWS = YES;
@@ -817,7 +825,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Diary/Diary.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Diary/Preview Content\"";
 				DEVELOPMENT_TEAM = NANGSZJP26;
 				ENABLE_PREVIEWS = YES;

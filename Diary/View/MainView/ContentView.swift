@@ -60,7 +60,7 @@ struct ContentView: View {
                                         .foregroundColor(Color("gray6"))
                                         .aspectRatio(contentMode: .fit)
                                         .frame(width: 5, height: 5)
-                                    Text(checkIfDateIsWithinRangeSave(date: Date.now), format: .dateTime.day(.twoDigits).month(.twoDigits))
+                                    Text(Date().checkDateWithinRange(date: Date.now), format: .dateTime.day(.twoDigits).month(.twoDigits))
                                         .font(.custom("SUIT-Semibold", size: 16))
                                         .foregroundStyle(.accent)
                                    
@@ -71,7 +71,7 @@ struct ContentView: View {
                                 
                                 
                             } else {
-                                if !checkIfDateIsWithinRange(date: todos[0].date!) {
+                                if !Date().checkBoolDateIsWithinRange(date: todos[0].date!) {
                                     HStack {
                                         Spacer()
                                         interButton(isShowingEditForm: $isShowingEditForm)
@@ -87,7 +87,7 @@ struct ContentView: View {
                                             .foregroundColor(Color("gray6"))
                                             .aspectRatio(contentMode: .fit)
                                             .frame(width: 5, height: 5)
-                                        Text(checkIfDateIsWithinRangeSave(date: Date.now), format: .dateTime.day(.twoDigits).month(.twoDigits))
+                                        Text(Date().checkDateWithinRange(date: Date.now), format: .dateTime.day(.twoDigits).month(.twoDigits))
                                             .font(.custom("SUIT-Semibold", size: 16))
                                             .foregroundStyle(.accent)
                                         
@@ -103,7 +103,7 @@ struct ContentView: View {
         
                             ForEach(todos.prefix(10), id: \.self) { todo in
                                 NavigationLink(destination: {
-                                    if checkIfDateIsWithinRange(date: todo.date!) {
+                                    if Date().checkBoolDateIsWithinRange(date: todo.date!) {
                                         EditTodayView(db: todo, isPresented: $isPresented, isHiding: $isHiding)
                                     }
                                     else {
@@ -119,8 +119,8 @@ struct ContentView: View {
                                                     .aspectRatio(contentMode: .fit)
                                                     .frame(width: 5, height: 5)
                                                 
-                                                if checkIfDateIsWithinRange(date: todo.date!) {
-                                                    Text(checkIfDateIsWithinRangeSave(date: Date.now), format: .dateTime.day(.twoDigits).month(.twoDigits))
+                                                if Date().checkBoolDateIsWithinRange(date: todo.date!) {
+                                                    Text(Date().checkDateWithinRange(date: Date.now), format: .dateTime.day(.twoDigits).month(.twoDigits))
                                                         .font(.custom("SUIT-Semibold", size: 16))
                                                         .foregroundStyle(.accent)
                                                 }
@@ -214,21 +214,12 @@ struct ContentView: View {
             }
             .onAppear {
                 if !todos.isEmpty {
-                    today_on = checkIfDateIsWithinRange(date: todos[0].date!)
+                    today_on = Date().checkBoolDateIsWithinRange(date: todos[0].date!)
                 } else {
                     today_on = false
                 }
                 isHiding = false
                 
-                print("date = c \(Date())")
-                print("date = cnow \(Date.now)")
-
-                print("date = \(checkIfDateIsWithinRangeSave(date: Date()))")
-                
-                let currentHour = Calendar.current.component(.hour, from: Date())
-
-                print("date = \(currentHour)")
-
             }
             
             .navigationDestination(isPresented: $isShowingEditForm, destination: {
@@ -241,66 +232,6 @@ struct ContentView: View {
                 }
             }
         }
-    }
-    
-    private func formatDate(_ date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .short
-        return formatter.string(from: date)
-    }
-    
-    private func checkIfDateIsWithinRange(date: Date) -> Bool {
-        
-        let calendar = Calendar.current
-        let components = calendar.dateComponents([.hour], from: Date.now)
-        let hour = components.hour ?? 0
-        
-        //        var startDate = Calendar.current.date(bySettingHour: 11, minute: 0, second: 0, of: Date())!
-        //        var endDate = Calendar.current.date(byAdding: .day, value: 1, to: Calendar.current.date(bySettingHour: 11, minute: 0, second: 0, of: Date())!)!
-        
-        //        if hour < 11 {
-        //            startDate = Calendar.current.date(byAdding: .day, value: -1, to: Calendar.current.date(bySettingHour: 11, minute: 0, second: 0, of: Date())!)!
-        //            endDate = Calendar.current.date(byAdding: .day, value: 0, to: Calendar.current.date(bySettingHour: 11, minute: 0, second: 0, of: Date())!)!
-        //        }
-        
-        //        if date >= startDate && date < endDate {
-        //            return true
-        //        }
-        //        else {
-        //            return false
-        //        }
-        var startDate = Date()
-        
-        if hour < 11 {
-            startDate = Calendar.current.date(byAdding: .day, value: -1, to: Date())!
-        }
-        
-        if formatDate_compare(startDate) == formatDate_compare(date) {
-            return true
-        } else {
-            return false
-        }
-    }
-    
-    private func checkIfDateIsWithinRangeSave(date: Date) -> Date {
-        
-        let calendar = Calendar.current
-        let components = calendar.dateComponents([.hour], from: Date.now)
-        let hour = components.hour ?? 0
-        
-        var startDate = Date()
-        if hour < 11 {
-            startDate = Calendar.current.date(byAdding: .day, value: -1, to: Date())!
-        }
-
-        return startDate
-    }
-    
-    private func formatDate_compare(_ date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "YYYYMMdd"
-        return formatter.string(from: date)
     }
 }
 
@@ -315,51 +246,5 @@ struct GrowingButton: ButtonStyle {
             .foregroundStyle(.white)
             .clipShape(Circle())
             
-    }
-}
-
-extension View {
-    
-    func changeOverlayOnScroll(
-        proxy : GeometryProxy,
-        offsetHolder : Binding<CGFloat>,
-        thresHold : Binding<CGFloat>,
-        toggle: Binding<Bool>
-    ) -> some View {
-        self
-            .onChange(
-                of: proxy.frame(in: .named("scroll")).minY
-            ) { newValue in
-                // Set current offset
-                offsetHolder.wrappedValue = abs(newValue)
-                // If current offset is going downward we hide overlay after 200 px.
-                if offsetHolder.wrappedValue > thresHold.wrappedValue + 200 {
-                    // We set thresh hold to current offset so we can remember on next iterations.
-                    thresHold.wrappedValue = offsetHolder.wrappedValue
-                    // Hide overlay
-                    toggle.wrappedValue = false
-                    
-                    // If current offset is going upward we show overlay again after 200 px
-                }else if offsetHolder.wrappedValue < thresHold.wrappedValue - 200 {
-                    // Save current offset to threshhold
-                    thresHold.wrappedValue = offsetHolder.wrappedValue
-                    // Show overlay
-                    toggle.wrappedValue = true
-                }
-         }
-    }
-}
-
-extension Date {
-    static var yesterday: Date { return Date().dayBefore }
-    static var tomorrow:  Date { return Date().dayAfter }
-    var dayBefore: Date {
-        return Calendar.current.date(byAdding: .day, value: -1, to: noon)!
-    }
-    var dayAfter: Date {
-        return Calendar.current.date(byAdding: .day, value: 1, to: noon)!
-    }
-    var noon: Date {
-        return Calendar.current.date(bySettingHour: 1, minute: 0, second: 0, of: self)!
     }
 }

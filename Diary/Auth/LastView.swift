@@ -37,10 +37,8 @@ struct LastView: View {
                 
                 Spacer().frame(height: 10)
                 Form {
-                    
                     Section {
                         ZStack {
-//                            RoundedRectangle(cornerRadius: 15.0).foregroundStyle(.black)
                             HStack {
                                 Image(systemName: "apple.logo")
                                     .padding()
@@ -61,7 +59,6 @@ struct LastView: View {
                             HStack {
                                 Text("Theme")
                                 Spacer()
-//                                Image(systemName: "chevron.forward")
                             }
                         })
                         
@@ -71,7 +68,6 @@ struct LastView: View {
                             HStack {
                                 Text("Help and FAQ")
                                 Spacer()
-    //                            Image(systemName: "chevron.forward")
                             }
                         })
                         
@@ -81,7 +77,6 @@ struct LastView: View {
                             HStack {
                                 Text("Privacy policy")
                                 Spacer()
-//                                Image(systemName: "chevron.forward")
                             }
                         })
                         

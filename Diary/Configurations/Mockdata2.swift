@@ -5,6 +5,8 @@
 //  Created by 성재 on 3/16/24.
 //
 
+// MARK: 날씨 및 감정 데이터
+
 import Foundation
 import SwiftUI
 

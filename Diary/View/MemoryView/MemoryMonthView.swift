@@ -25,7 +25,7 @@ struct MemoryMonthView: View {
     init(_ db: [DB_core], titlestring: String) {
         self.db = db
         self.titlestring = titlestring
-        dict = OrderedDictionary(grouping: db, by: { formatDate_Month($0.date!) })
+        dict = OrderedDictionary(grouping: db, by: { Date().formatDate($0.date!, using: .month) })
         
     }
     
@@ -103,12 +103,6 @@ struct MemoryMonthView: View {
               }
             )
 
-    }
-    
-    private func formatDate_Month(_ date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MM"
-        return formatter.string(from: date)
     }
 }
 

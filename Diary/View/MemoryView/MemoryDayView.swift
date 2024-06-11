@@ -64,7 +64,7 @@ struct MemoryDayView: View {
                             VStack {
                                 Spacer()
                                 HStack {
-                                    Text(formatDate(index.date!))
+                                    Text(Date().formatDate(index.date!, using: .month_day))
                                         .foregroundStyle(.white)
                                         .font(.custom("SUIT-Regular", size: 15))
                                     Text("·")
@@ -100,11 +100,5 @@ struct MemoryDayView: View {
                 dismiss()
               }
         )
-    }
-    
-    private func formatDate(_ date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MM / dd"
-        return formatter.string(from: date)
     }
 }

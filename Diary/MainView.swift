@@ -67,6 +67,7 @@ struct MainView: View {
         
     }
     
+    /// 탭 테스트를 위한 코드
     @ViewBuilder
     func SampleTabView(_ title: String, _ icon: String) -> some View {
         Text(title)

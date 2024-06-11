@@ -44,12 +44,9 @@ struct HighlightView: View {
 
                                 VStack {
                                     HStack {
-                                        Text("\(formatDate_Month(Date.now))")
+                                        Text("\(Date().formatDate(Date.now, using: .month_text))")
                                             .foregroundStyle(.black)
                                             .font(.custom("SUIT-Semibold", size: 20))
-//                                        Text("\(Date.now.startOfMonth())")
-//                                            .foregroundStyle(.black)
-//                                            .font(.custom("SUIT-Semibold", size: 10))
                                         Spacer()
                                     }
                                     .padding()
@@ -83,7 +80,6 @@ struct HighlightView: View {
                                                         center: .bottomLeading,
                                                        angle: .degrees(0 + 45))
                                     )
-//                                        .foregroundStyle(.accent)
                                     .shadow(color: .black.opacity(0.08), radius: 5, x: 0, y: 5)
 
                                 
@@ -125,9 +121,6 @@ struct HighlightView: View {
                         Spacer().frame(height: 28)
                         
                         ZStack {
-//                            RoundedRectangle(cornerRadius: 15.0).foregroundStyle(.white)
-//                                .shadow(color: .black.opacity(0.1), radius: 50, x: 0, y: 5)
-
                             HStack {
                                 VStack {
                                     HStack {
@@ -163,7 +156,6 @@ struct HighlightView: View {
                                     .padding(.horizontal, 16)
                                     .padding(.vertical, 5)
                                     
-                                    //                                        Spacer()
                                 }
                             }
                         }
@@ -179,8 +171,7 @@ struct HighlightView: View {
                         Spacer().frame(height: 28)
                         
                         ZStack {
-//                            RoundedRectangle(cornerRadius: 15.0).foregroundStyle(.white)
-//                                .shadow(color: .black.opacity(0.1), radius: 50, x: 0, y: 5)
+
                             if !todos[0].image.isEmpty {
                                 KFImage.url(todos[0].image.first)
                                     .resizable()
@@ -328,23 +319,13 @@ struct HighlightView: View {
         .edgesIgnoringSafeArea(.all)
     }
     
-    private func formatDate_day(_ date: Date) -> Int {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd"
-        return Int(formatter.string(from: date))!
-    }
     
     private func arrfilter(array: [DB_core]) -> Float {
         let cnt = array.filter { $0.date! >= Date.now.startOfMonth() }.count
-        let date = formatDate_day(Date.now)
+        let date = Int(Date().formatDate(Date.now, using: .day))!
+//        let date = formatDate_day(Date.now)
 
         return round(Float(Float(100 * cnt) / Float(date))*10)/10
-    }
-    
-    private func formatDate_Month(_ date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MM월"
-        return formatter.string(from: date)
     }
     
     private func dictcount(dict: Dictionary<Int, [Array<DB_core>.Element]>) -> Dictionary<Int, Int> {
@@ -356,22 +337,5 @@ struct HighlightView: View {
         
         return dict2
     }
-    
-//    private func checkIfDateIsWithin(date: Date) -> Int {
-//        
-//        let calendar = Calendar.current
-//        let components = calendar.dateComponents([.hour], from: Date.now)
-//        let hour = components.hour ?? 0
-//        
-//        var startDate = Calendar.current.date(bySettingHour: 11, minute: 0, second: 0, of: Date())!
-//        var endDate = Calendar.current.date(byAdding: .day, value: 1, to: Calendar.current.date(bySettingHour: 11, minute: 0, second: 0, of: Date())!)!
-//        
-//        if hour < 11 {
-//            startDate = Calendar.current.date(byAdding: .day, value: -1, to: Calendar.current.date(bySettingHour: 11, minute: 0, second: 0, of: Date())!)!
-//            endDate = Calendar.current.date(byAdding: .day, value: 0, to: Calendar.current.date(bySettingHour: 11, minute: 0, second: 0, of: Date())!)!
-//        }
-//
-//        return calendar.dateComponents([.day], from: date, to: Date()).day!
-//    }
     
 }

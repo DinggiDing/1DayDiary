@@ -17,7 +17,6 @@ struct interButton: View {
     
     var body: some View {
         ZStack {
-//            Rectangle().frame(width: 150, height: 44)
             RoundedRectangle(cornerRadius: 40)
                 .fill(
                     AngularGradient(gradient: Gradient(colors: [Color.mainpoint, Color.maingra]),
@@ -25,7 +24,6 @@ struct interButton: View {
                                    angle: .degrees(0 + 45))
                 )
                 .frame(width: 150, height: 44)
-//                .foregroundColor(.mainpoint)
                 .cornerRadius(40)
                 .shadow(color: .mainpoint.opacity(0.2), radius: 10, x: 10, y: 10)
                 .shadow(color: .white.opacity(0.6), radius: 10, x: 10, y:10)

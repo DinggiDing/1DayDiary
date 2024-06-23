@@ -11,9 +11,6 @@ import TipKit
 import SwiftUIIntrospect
 
 struct EditView2: View {
-//    // MARK: Core data variables
-//   @EnvironmentObject var manager: DataManager
-//   @Environment(\.managedObjectContext) var viewContext
     
     @Binding var isPresented: Bool
     @Binding var isHiding: Bool

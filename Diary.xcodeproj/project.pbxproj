@@ -31,6 +31,7 @@
 		7E2611492BB443E800D3BEA5 /* TabBarContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2611482BB443E800D3BEA5 /* TabBarContainer.swift */; };
 		7E26114B2BB4442000D3BEA5 /* MaterialTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E26114A2BB4442000D3BEA5 /* MaterialTabBar.swift */; };
 		7E26114D2BB4444600D3BEA5 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E26114C2BB4444600D3BEA5 /* TabBarItem.swift */; };
+		7E29921C2C1F17CD00EDC195 /* CountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E29921B2C1F17CD00EDC195 /* CountdownView.swift */; };
 		7E2B8B612BF26154008826EB /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 7E2B8B602BF26154008826EB /* SwiftUICharts */; };
 		7E2C3BC12BA0F20100543157 /* PopupBottomFirst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2C3BC02BA0F20100543157 /* PopupBottomFirst.swift */; };
 		7E2F14362BB6CE61000CF20D /* SUIT-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7E2F14352BB6CE60000CF20D /* SUIT-Bold.otf */; };
@@ -123,6 +124,7 @@
 		7E2611482BB443E800D3BEA5 /* TabBarContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarContainer.swift; sourceTree = "<group>"; };
 		7E26114A2BB4442000D3BEA5 /* MaterialTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialTabBar.swift; sourceTree = "<group>"; };
 		7E26114C2BB4444600D3BEA5 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
+		7E29921B2C1F17CD00EDC195 /* CountdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownView.swift; sourceTree = "<group>"; };
 		7E2C3BC02BA0F20100543157 /* PopupBottomFirst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupBottomFirst.swift; sourceTree = "<group>"; };
 		7E2F14352BB6CE60000CF20D /* SUIT-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-Bold.otf"; sourceTree = "<group>"; };
 		7E2F14372BB6CE76000CF20D /* SUIT-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-Medium.otf"; sourceTree = "<group>"; };
@@ -388,6 +390,7 @@
 			children = (
 				7ED620E62BEFEC7800F2398C /* HighlightView.swift */,
 				7E0138442BF3A05700012D1C /* CircularProgressView.swift */,
+				7E29921B2C1F17CD00EDC195 /* CountdownView.swift */,
 			);
 			path = HighlightView;
 			sourceTree = "<group>";
@@ -607,6 +610,7 @@
 				7E32A6DE2BA4585D002B854C /* PopupBottomSecond.swift in Sources */,
 				7ED620E52BEFC87F00F2398C /* updateButton.swift in Sources */,
 				7E3827412BB9690700CCD7E6 /* EditTodayView.swift in Sources */,
+				7E29921C2C1F17CD00EDC195 /* CountdownView.swift in Sources */,
 				7E763EF42B935BED00A1BF47 /* Diarydb.xcdatamodeld in Sources */,
 				7EAFC55B2B9B5AF6002133B4 /* EditView2.swift in Sources */,
 				7E32A6E02BA4A132002B854C /* Mockdata2.swift in Sources */,

@@ -36,6 +36,16 @@ struct HighlightView: View {
                     VStack {
                         Spacer().frame(height: 32)
                         
+                        CountdownView()
+                        Spacer().frame(height: 32)
+
+                        Rectangle().frame(height: 1, alignment: .center)
+                            .padding(.leading, 28)
+                            .padding(.trailing, 28)
+                            .foregroundStyle(.gray5)
+                        
+                        Spacer().frame(height: 28)
+                        
                         HStack {
                             Spacer().frame(width: 15)
                             ZStack {
@@ -305,7 +315,7 @@ struct HighlightView: View {
                 todoarrfilter_count = arrfilter(array: todoarr)
             }
         }
-        .onReceive(todos.publisher.collect(), perform: { objects in
+        .onReceive(todos.publisher.collect().receive(on: DispatchQueue.main), perform: { objects in
             if !todos.isEmpty {
                 todoarr = Array(todos)
                 tododict = Dictionary(grouping: todoarr, by: { Int($0.emotions) })

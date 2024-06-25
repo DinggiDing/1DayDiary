@@ -36,63 +36,6 @@ struct publishButton: View {
                 donedone.toggle()
             }
         }
-//        ZStack {
-//            Rectangle().frame(width: 150, height: 44)
-//                .foregroundColor(.blackblue55)
-//                .cornerRadius(40)
-//                .shadow(color: .black.opacity(0.2), radius: 10, x: 10, y: 10)
-//                .shadow(color: .white.opacity(0.6), radius: 10, x: 10, y:10)
-//            
-//            HStack(spacing: 13) {
-//                
-//                ZStack {
-//                    Circle().trim(from: 0, to : 1)
-//                        .stroke(style: StrokeStyle(lineWidth: 2, lineCap: .round))
-//                        .rotation(.degrees(-90))
-//                        .frame(width: 22, height: 22)
-//                        .foregroundStyle(.gray5).opacity(0.5)
-//                        .opacity(Hpress ? 0 : 1)
-//                    
-//                    Circle().trim(from: 0, to : topG ? 1 : 0)
-//                        .stroke(style: StrokeStyle(lineWidth: 2, lineCap: .round))
-//                        .rotation(.degrees(-90))
-//                        .frame(width: 22, height: 22)
-//                        .foregroundStyle(.gray5)
-//                        .scaleEffect(Hpress ? 0 : 1)
-//                    Image(systemName: "arrow.up")
-//                        .foregroundColor(.white)
-//                        .font(.system(size: 10, weight: .bold))
-//                        .scaleEffect(Hpress ? 0 : 1)
-//                        .offset(x: 0, y: topG ? -50: 0)
-//                        .opacity(topG ? 0 : 1)
-//                    
-//                    Image(systemName: "checkmark")
-//                        .font(.system(size: 14, weight: .bold))
-//                        .foregroundStyle(.indigo)
-//                        .scaleEffect(Hpress ? 1 : 0)
-//                        .animation(.easeInOut, value: Hpress)
-//                }
-//                
-//                Text("Publish")
-//                    .font(.system(size: 14, weight: .bold))
-//                    .foregroundStyle(.white)
-//            }
-//        }
-//        
-//        .animation(.easeInOut.speed(0.3), value: topG)
-//        .scaleEffect(topG ? 0.8 : 1)
-//        .gesture(LongPressGesture(minimumDuration: 1.0).updating($topG) { cstate, gstate, trantion in
-//        gstate = cstate
-//                
-//        }
-//            .onEnded({ value in
-//                Hpress.toggle()
-//                self.saveTodo(title: title=="" ? Date().formatDate(Date().checkDateWithinRange(date: Date.now), using: .month_day_text) : title, date: Date.now, status: status, image: image, emotions: Int16(emotions), weathers: Int16(weathers), text_align: text_align, text_spacing: Int16(text_spacing))
-//                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-//                    donedone.toggle()
-//                }
-//            })
-//        )
     }
     
     // MARK: Core Data Operations

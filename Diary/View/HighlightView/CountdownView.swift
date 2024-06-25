@@ -15,24 +15,28 @@ struct CountdownView: View {
 
     var body: some View {
         VStack {
+            
+            Text("오늘의 기억을 기록할 남은 시간")
+                .font(.custom("SUITE-Medium", size: 16))
+                .padding(4)
             Text(timeString(time: remainingTime))
-                .font(.largeTitle)
-                .padding()
+                .font(.custom("SUIT-Bold", size: 28))
+                .padding(8)
             
             ZStack(alignment: .leading) {
                 RoundedRectangle(cornerRadius: 15.0)
                     .frame(height: 5)
-                    .foregroundStyle(.gray)
+                    .foregroundStyle(.gray6)
                 
                 RoundedRectangle(cornerRadius: 15.0)
-                    .frame(width: CGFloat(CGFloat(timeString2(time: remainingTime)) * AppConfig.homeWidth), height: 5)
-                    .foregroundStyle(.green)
+                    .frame(width: CGFloat(CGFloat(timeString2(time: remainingTime)) * AppConfig.countdownWidth), height: 5)
+                    .foregroundStyle(.darkblue)
             }
+            .frame(width: AppConfig.countdownWidth)
         }
         .onAppear {
             startTimer()
         }
-//        .onAppear(perform: startTimer)
         .onDisappear(perform: stopTimer)
     }
 
@@ -68,7 +72,10 @@ struct CountdownView: View {
 // 다음 날 오전 11시를 계산하는 함수
 func nextDayElevenAM() -> Date {
     var components = Calendar.current.dateComponents([.year, .month, .day], from: Date())
-    components.day! += 1
+    if components.hour ?? 0 > 11 {
+        components.day! += 1
+    }
+    
     components.hour = 11
     components.minute = 0
     components.second = 0

@@ -28,6 +28,9 @@ struct MaterialTabBar: View {
             }
             
             .background {
+//                RoundedRectangle(cornerRadius: 24)
+//                                .fill(Color.white)
+//                                .shadow(color: .black.opacity(0.15), radius: 8, y: 2)
                 contentShape
                     .foregroundStyle(.ultraThinMaterial)
             }
@@ -42,10 +45,6 @@ struct MaterialTabBar: View {
             }
         }
     }
-}
-
-#Preview {
-    MaterialTabBar(tabs: [.home, .favorites, .messages, .profile], selection: .constant(.home), localSelection: .home)
 }
 
 extension MaterialTabBar {

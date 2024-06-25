@@ -85,13 +85,14 @@ struct PopupBottomFirst: View {
 
 }
 
-struct MainButton: View {
+struct MainButton<Content: View>: View {
 
     var imageName: String
     var colorHex: String
     var text: String
     var didtap: Bool
     var width: CGFloat = 78
+    @ViewBuilder var content: () -> Content
 
     var body: some View {
         ZStack {
@@ -100,7 +101,8 @@ struct MainButton: View {
                 .cornerRadius(width / 5)
                 .shadow(color: Color(hex: colorHex).opacity(0.3), radius: 15, x: 0, y: 15)
             VStack {
-                Image(systemName: imageName)
+                content()
+//                Image(systemName: imageName)
                     .foregroundColor(didtap ? .white : .black)
                     .padding(.bottom, 5)
                 Text(text).foregroundStyle(didtap ? .white : .black)
@@ -124,7 +126,13 @@ func PopupBottomView(title: String, items: [String], icons: [String], didTap: Bi
             Spacer()
             LazyVGrid(columns: columns, spacing: 10) {
                 ForEach(0..<items.count, id: \.self) { index in
-                    MainButton(imageName: icons[index], colorHex: "F3F2F7", text: items[index], didtap: didTap.wrappedValue[index])
+                    MainButton(imageName: icons[index], colorHex: "F3F2F7", text: items[index], didtap: didTap.wrappedValue[index]) {
+                        if title == "Mood" {
+                            Text(icons[index])
+                        } else {
+                            Image(systemName: icons[index])
+                        }
+                    }
                         .onTapGesture {
                             onItemTap(index)
                         }

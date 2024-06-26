@@ -251,13 +251,3 @@ struct ContentView: View {
 #Preview {
     MainView()
 }
-
-struct GrowingButton: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .background(.main)
-            .foregroundStyle(.white)
-            .clipShape(Circle())
-            
-    }
-}

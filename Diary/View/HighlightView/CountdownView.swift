@@ -9,59 +9,37 @@ import SwiftUI
 import Combine
 
 struct CountdownView: View {
-    @State private var remainingTime: TimeInterval = nextDayElevenAM().timeIntervalSinceNow
-    @State private var timerSubscription: AnyCancellable?
+//    @State private var remainingTime: TimeInterval = nextDayElevenAM().timeIntervalSinceNow
+//    @State private var timerSubscription: AnyCancellable?
     @State private var weightpercent: Double = 0.9
+    
+    @StateObject private var viewModel = CountdownViewModel()
+
 
     var body: some View {
-        VStack {
-            
-            Text("오늘의 기억을 기록할 남은 시간")
-                .font(.custom("SUITE-Medium", size: 16))
-                .padding(4)
-            Text(timeString(time: remainingTime))
-                .font(.custom("SUIT-Bold", size: 28))
-                .padding(8)
-            
-            ZStack(alignment: .leading) {
-                RoundedRectangle(cornerRadius: 15.0)
-                    .frame(height: 5)
-                    .foregroundStyle(.gray6)
+        ZStack {
+            RoundedRectangle(cornerRadius: 15.0).foregroundStyle(.whitegray)
+                .shadow(color: .black.opacity(0.08), radius: 5, x: 0, y: 5)
+            VStack {
                 
-                RoundedRectangle(cornerRadius: 15.0)
-                    .frame(width: CGFloat(CGFloat(timeString2(time: remainingTime)) * AppConfig.countdownWidth), height: 5)
-                    .foregroundStyle(.darkblue)
+                Text("오늘의 기억을 기록할 남은 시간")
+                    .font(.custom("SUITE-Medium", size: 16))
+                    .padding(4)
+                Text(viewModel.timeRemaining)
+                    .font(.largeTitle)
+                    .monospacedDigit()
+                ProgressView(value: viewModel.progress)
+                    .progressViewStyle(LinearProgressViewStyle())
+                    .tint(.maingra)
+                    .padding()
             }
-            .frame(width: AppConfig.countdownWidth)
+            .padding()
         }
-        .onAppear {
-            startTimer()
-        }
-        .onDisappear(perform: stopTimer)
+        .frame(width: AppConfig.homeWidth-30, height: AppConfig.homeHeight/3)
+
+//        .frame(width: AppConfig.countdownWidth)
     }
 
-    func startTimer() {
-        stopTimer()  // 기존 타이머를 정지
-        timerSubscription = Timer.publish(every: 1, on: .main, in: .common)
-            .autoconnect()
-            .sink { _ in
-                updateRemainingTime()
-            }
-    }
-//
-    func stopTimer() {
-        timerSubscription?.cancel()
-        timerSubscription = nil
-    }
-
-    private func updateRemainingTime() {
-        let timeInterval = nextDayElevenAM().timeIntervalSinceNow
-        if timeInterval > 0 {
-            remainingTime = timeInterval
-        } 
-//         }
-    }
-    
     
 }
 
@@ -69,29 +47,54 @@ struct CountdownView: View {
     CountdownView()
 }
 
-// 다음 날 오전 11시를 계산하는 함수
-func nextDayElevenAM() -> Date {
-    var components = Calendar.current.dateComponents([.year, .month, .day], from: Date())
-    if components.hour ?? 0 > 11 {
-        components.day! += 1
+class CountdownViewModel: ObservableObject {
+    @Published var timeRemaining: String = ""
+    @Published var progress: Double = 0.0
+    private var cancellable: AnyCancellable?
+    
+    init() {
+        startCountdown()
     }
     
-    components.hour = 11
-    components.minute = 0
-    components.second = 0
-    return Calendar.current.date(from: components)!
-}
-
-// 남은 시간을 포맷팅하는 함수
-func timeString(time: TimeInterval) -> String {
-    let hours = Int(time) / 3600
-    let minutes = Int(time) / 60 % 60
-    let seconds = Int(time) % 60
-    return String(format: "%02i:%02i:%02i", hours, minutes, seconds)
-}
-
-// 남은 시간을 퍼셋팅하는 함수
-func timeString2(time: TimeInterval) -> Double {
-    let interval = (Double(Int(time) / 60) / 1440)
-    return Double(interval)
+    private func startCountdown() {
+        cancellable = Timer.publish(every: 1, on: .main, in: .common)
+            .autoconnect()
+            .map { _ in self.calculateTimeRemaining() }
+            .receive(on: RunLoop.main)
+            .sink(receiveValue: { (timeString, progress) in
+                self.timeRemaining = timeString
+                self.progress = progress
+            })
+    }
+    
+    private func calculateTimeRemaining() -> (String, Double) {
+        let now = Date()
+        let calendar = Calendar.current
+        
+        var targetDateComponents = calendar.dateComponents([.year, .month, .day], from: now)
+        targetDateComponents.hour = 11
+        targetDateComponents.minute = 0
+        targetDateComponents.second = 0
+        
+        if let targetDate = calendar.date(from: targetDateComponents), targetDate < now {
+            // If target time today has passed, set target time to tomorrow
+            targetDateComponents.day! += 1
+        }
+        
+        let targetDate = calendar.date(from: targetDateComponents)!
+        let timeInterval = targetDate.timeIntervalSince(now)
+        
+        let hours = Int(timeInterval) / 3600
+        let minutes = (Int(timeInterval) % 3600) / 60
+        let seconds = Int(timeInterval) % 60
+        
+        let totalSecondsInDay = 24 * 60
+        let secondsRemaining = Int(timeInterval) / 60
+//        let secondsRemaining = Int(timeInterval)
+        let progress = Double(secondsRemaining) / Double(totalSecondsInDay)
+        
+        let timeString = String(format: "%02d:%02d:%02d", hours, minutes, seconds)
+        
+        return (timeString, progress)
+    }
 }

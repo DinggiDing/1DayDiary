@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import LPNotiSys
 
 struct LastView: View {
     
@@ -33,102 +34,126 @@ struct LastView: View {
 
     var body: some View {
         NavigationStack {
-            VStack {
-                
-                Spacer().frame(height: 10)
-                Form {
-                    Section {
-                        ZStack {
-                            HStack {
-                                Image(systemName: "apple.logo")
-                                    .padding()
-                                Text(viewModel.displayName)
-                                Spacer()
-                                Spacer()
-                            }
-                            .foregroundStyle(.white)
-                        }
-                    }
-                    .listRowBackground(Color.blackblue55)
-
-
-                    Section("General") {
-                        NavigationLink(destination: {
-                            LastThemeView()
-                        }, label: {
-                            HStack {
-                                Text("Theme")
-                                Spacer()
-                            }
-                        })
-                        
-                        NavigationLink(destination: {
-                            WebView(urlToLoad: "https://inquisitive-foe-bfb.notion.site/1-Day-Diary-7b5d10c66afc44b7ba422abb807d6f3c?pvs=4")
-                        }, label:  {
-                            HStack {
-                                Text("Help and FAQ")
-                                Spacer()
-                            }
-                        })
-                        
-                        NavigationLink(destination: {
-                            WebView(urlToLoad: "https://inquisitive-foe-bfb.notion.site/b20d46ce575246a89a39dc9e2bef1fa8?pvs=4")
-                        }, label: {
-                            HStack {
-                                Text("Privacy policy")
-                                Spacer()
-                            }
-                        })
-                        
-                    }
-                    .listRowBackground(Color.ivory1)
-//
-//                    Section {
-//                        Button(role: .destructive, action: deleteall) {
-//                            HStack {
-//                                Spacer()
-//                                Text("Data Delete")
-//                                Spacer()
-//                            }
-//                        }
-//                    }
-//                    .listRowBackground(Color.ivory1)
-//                    
-                    Section {
-                        Button(role: .destructive, action: signOut) {
-                            HStack {
-                                Spacer()
-                                Text("Sign out")
-                                Spacer()
-                            }
-                        }
-                    }
-                    .listRowBackground(Color.ivory1)
-
-                    Section {
-                        Button(role: .destructive, action: { presentingConfirmationDialog.toggle() }) {
-                            HStack {
-                                Spacer()
-                                Text("Delete Account")
-                                Spacer()
-                            }
-                        }
-                    }
-                    .listRowBackground(Color.ivory1)
-
+            ScrollView {
+                VStack {
+                    LPNotiSysView()
                 }
-                .scrollContentBackground(.hidden)
-
-                
+                .frame(width: AppConfig.homeWidth, height: AppConfig.homeHeight)
+                VStack {
+                    
+                    VStack {
+                        HStack {
+                            Text("General")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                            Spacer()
+                        }
+                        .padding(.horizontal, 32)
+                        
+                        HStack {
+                            Text("로그인 상태와 테마 변경하기")
+                                .font(.footnote)
+                                .foregroundStyle(.gray)
+                            Spacer()
+                        }
+                        .padding(.horizontal, 32)
+                        .padding(.bottom, 4)
+                    }
+                    .padding(.top, 8)
+                    
+                    Form {
+                        Section("로그인 상태") {
+                            ZStack {
+                                HStack {
+                                    Image(systemName: "apple.logo")
+                                        .padding()
+                                    Text(viewModel.displayName)
+                                    Spacer()
+                                    Spacer()
+                                }
+                            }
+                        }
+                        
+                        
+                        Section("General") {
+                            NavigationLink(destination: {
+                                LastThemeView()
+                            }, label: {
+                                HStack {
+                                    Text("Theme")
+                                    Spacer()
+                                }
+                            })
+                            
+                            NavigationLink(destination: {
+                                WebView(urlToLoad: "https://inquisitive-foe-bfb.notion.site/1-Day-Diary-7b5d10c66afc44b7ba422abb807d6f3c?pvs=4")
+                            }, label:  {
+                                HStack {
+                                    Text("Help and FAQ")
+                                    Spacer()
+                                }
+                            })
+                            
+                            NavigationLink(destination: {
+                                WebView(urlToLoad: "https://inquisitive-foe-bfb.notion.site/b20d46ce575246a89a39dc9e2bef1fa8?pvs=4")
+                            }, label: {
+                                HStack {
+                                    Text("Privacy policy")
+                                    Spacer()
+                                }
+                            })
+                            
+                        }
+                        //
+                        //                    Section {
+                        //                        Button(role: .destructive, action: deleteall) {
+                        //                            HStack {
+                        //                                Spacer()
+                        //                                Text("Data Delete")
+                        //                                Spacer()
+                        //                            }
+                        //                        }
+                        //                    }
+                        //
+                        Section {
+                            Button(role: .destructive, action: signOut) {
+                                HStack {
+                                    Spacer()
+                                    Text("Sign out")
+                                    Spacer()
+                                }
+                            }
+                        }
+                        
+                        Section {
+                            Button(role: .destructive, action: { presentingConfirmationDialog.toggle() }) {
+                                HStack {
+                                    Spacer()
+                                    Text("Delete Account")
+                                    Spacer()
+                                }
+                            }
+                        }
+                    }
+                    .background(Color.ivory1)
+                    .scrollContentBackground(.hidden)
+                    
+                    
+                }
+                .confirmationDialog("Deleting your account is permanent. Do you want to delete your account?",
+                                    isPresented: $presentingConfirmationDialog, titleVisibility: .visible) {
+                    Button("Delete Account", role: .destructive, action: deleteAccount)
+                    Button("Cancel", role: .cancel, action: { })
+                }
+                .frame(width: AppConfig.homeWidth, height: AppConfig.homeHeight)
             }
-            .background(.white)
-            .navigationTitle("Profile")
-            .confirmationDialog("Deleting your account is permanent. Do you want to delete your account?",
-                                isPresented: $presentingConfirmationDialog, titleVisibility: .visible) {
-                Button("Delete Account", role: .destructive, action: deleteAccount)
-                Button("Cancel", role: .cancel, action: { })
-            }
+            .background(Color.ivory1)
+            .scrollIndicators(.hidden)
+            .navigationTitle("Setting")
+            .navigationBarTitleDisplayMode(.inline)
+            
         }
+        
     }
     
     private func deleteall() {

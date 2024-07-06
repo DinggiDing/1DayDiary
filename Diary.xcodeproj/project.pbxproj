@@ -58,6 +58,7 @@
 		7E7D54D92C05DF8D0022A7D3 /* NotoSansKR-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7E7D54D82C05DF8D0022A7D3 /* NotoSansKR-Regular.ttf */; };
 		7E7D54DC2C05DFA40022A7D3 /* NotoSansKR-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7E7D54DA2C05DFA40022A7D3 /* NotoSansKR-Medium.ttf */; };
 		7E7D54DD2C05DFA40022A7D3 /* NotoSansKR-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7E7D54DB2C05DFA40022A7D3 /* NotoSansKR-Bold.ttf */; };
+		7E852D492C37E52F00777A34 /* LPNotiSys in Frameworks */ = {isa = PBXBuildFile; productRef = 7E852D482C37E52F00777A34 /* LPNotiSys */; };
 		7E87AA602BEAA19A002648EA /* AppleSignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E87AA5F2BEAA19A002648EA /* AppleSignView.swift */; };
 		7E87AA622BEAA248002648EA /* AuthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E87AA612BEAA248002648EA /* AuthenticatedView.swift */; };
 		7E87AA662BEAA456002648EA /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E87AA652BEAA456002648EA /* AuthenticationViewModel.swift */; };
@@ -182,6 +183,7 @@
 				7E3136332BAD34AA0073659C /* Kingfisher in Frameworks */,
 				7EF834D02BE4A1240037D016 /* Collections in Frameworks */,
 				7E1619832BFCEFF60068FF0D /* SwiftUIIntrospect in Frameworks */,
+				7E852D492C37E52F00777A34 /* LPNotiSys in Frameworks */,
 				7E34C9112BA8224D0021A56D /* Drops in Frameworks */,
 				7E245E712B9ACEA00006FE90 /* ExyteMediaPicker in Frameworks */,
 				7E2B8B612BF26154008826EB /* SwiftUICharts in Frameworks */,
@@ -445,6 +447,7 @@
 				7E163B272BE76D630019609D /* FirebaseAuth */,
 				7E2B8B602BF26154008826EB /* SwiftUICharts */,
 				7E1619822BFCEFF60068FF0D /* SwiftUIIntrospect */,
+				7E852D482C37E52F00777A34 /* LPNotiSys */,
 			);
 			productName = Diary;
 			productReference = 7E1104B82B8B64500012DFD4 /* Diary.app */;
@@ -527,6 +530,7 @@
 				7E163B262BE76D630019609D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				7E2B8B5B2BF24CDD008826EB /* XCRemoteSwiftPackageReference "ChartView" */,
 				7E1619812BFCEFF60068FF0D /* XCRemoteSwiftPackageReference "swiftui-introspect" */,
+				7E852D472C37E52F00777A34 /* XCRemoteSwiftPackageReference "LPNotiSys" */,
 			);
 			productRefGroup = 7E1104B92B8B64500012DFD4 /* Products */;
 			projectDirPath = "";
@@ -1035,6 +1039,14 @@
 				minimumVersion = 1.7.0;
 			};
 		};
+		7E852D472C37E52F00777A34 /* XCRemoteSwiftPackageReference "LPNotiSys" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/DinggiDing/LPNotiSys";
+			requirement = {
+				kind = exactVersion;
+				version = 1.0.1;
+			};
+		};
 		7EF834CC2BE4A1240037D016 /* XCRemoteSwiftPackageReference "swift-collections" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/swift-collections.git";
@@ -1080,6 +1092,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7E34C90F2BA821F10021A56D /* XCRemoteSwiftPackageReference "Drops" */;
 			productName = Drops;
+		};
+		7E852D482C37E52F00777A34 /* LPNotiSys */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7E852D472C37E52F00777A34 /* XCRemoteSwiftPackageReference "LPNotiSys" */;
+			productName = LPNotiSys;
 		};
 		7EF834CD2BE4A1240037D016 /* BitCollections */ = {
 			isa = XCSwiftPackageProductDependency;

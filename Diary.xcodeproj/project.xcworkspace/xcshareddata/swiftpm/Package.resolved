@@ -1,5 +1,5 @@
 {
-  "originHash" : "92d626ed8ce10c0a7a6142caa3bc6e843043f2ee98c2451353c78ee3ffe71c51",
+  "originHash" : "bbdcdfde9cb0aa2ecbc1c21fd6a83797464d159f465bdfc7918b80287e538df5",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -17,6 +17,15 @@
       "state" : {
         "revision" : "7d2688de038d5484866d835acb47b379722d610e",
         "version" : "10.19.0"
+      }
+    },
+    {
+      "identity" : "biguipaging",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/notsobigcompany/BigUIPaging.git",
+      "state" : {
+        "revision" : "40fa6e1683bd47b962e216c05377bfd1b8f760de",
+        "version" : "0.0.3"
       }
     },
     {
@@ -125,6 +134,15 @@
       "state" : {
         "revision" : "a0bc79961d7be727d258d33d5a6b2f1023270ba1",
         "version" : "1.22.5"
+      }
+    },
+    {
+      "identity" : "lpnotisys",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/DinggiDing/LPNotiSys",
+      "state" : {
+        "revision" : "b6ca14711687ed4adc4dd2a15babb6445434ecee",
+        "version" : "1.0.1"
       }
     },
     {

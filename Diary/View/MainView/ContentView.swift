@@ -14,7 +14,7 @@ struct ContentView: View {
     @State var isShowingEditForm: Bool = false
     
     /// coredata
-    @FetchRequest(sortDescriptors: [SortDescriptor(\.date, order: .reverse)]) private var todos: FetchedResults<DB_core>
+//    @FetchRequest(sortDescriptors: [SortDescriptor(\.date, order: .reverse)]) private var todos: FetchedResults<DB_core>
     let columns = [GridItem(.flexible(), spacing: 1)]
 
     @State private var favoriteColor = "Day"
@@ -31,6 +31,20 @@ struct ContentView: View {
     @AppStorage("MyTitlefontValue") private var titlefontvalue: String = "Arita-buri-Bold_OTF"
 
     @State var appear = false
+    @FetchRequest var todos: FetchedResults<DB_core>
+    
+    init(isHiding: Binding<Bool>) {
+        self._isHiding = isHiding
+        
+        let request: NSFetchRequest<DB_core> = DB_core.fetchRequest()
+        
+        request.sortDescriptors = [
+            NSSortDescriptor(keyPath: \DB_core.date, ascending: false)
+        ]
+        request.fetchLimit = 10
+        
+        _todos = FetchRequest(fetchRequest: request)
+    }
     
     
     var body: some View {
@@ -40,7 +54,7 @@ struct ContentView: View {
                 ScrollView(content: {
                     ZStack {
                         VStack {
-                            Spacer().frame(height: 36)
+//                            Spacer().frame(height: 36)
 
                             if todos.isEmpty {
                                 
@@ -219,7 +233,6 @@ struct ContentView: View {
                     today_on = false
                 }
                 isHiding = false
-                
             }
             
             .navigationDestination(isPresented: $isShowingEditForm, destination: {
@@ -237,14 +250,4 @@ struct ContentView: View {
 
 #Preview {
     MainView()
-}
-
-struct GrowingButton: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .background(.main)
-            .foregroundStyle(.white)
-            .clipShape(Circle())
-            
-    }
 }

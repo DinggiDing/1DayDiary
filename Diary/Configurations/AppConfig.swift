@@ -20,6 +20,8 @@ class AppConfig {
     
     // MARK: - UI Configurations
     static let homeWidth: CGFloat = UIScreen.main.bounds.width
+    static let countdownWidth: CGFloat = UIScreen.main.bounds.width-56
+
     static let homeWidth2: CGFloat = UIScreen.main.bounds.width*0.712
     static let homeWidth3: CGFloat = UIScreen.main.bounds.width / 3
     static let homeHeight: CGFloat = UIScreen.main.bounds.height

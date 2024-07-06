@@ -15,7 +15,7 @@ class DataManager: NSObject, ObservableObject {
     
     // Add the Core Data container with the model name
 //    let container: NSPersistentContainer = NSPersistentContainer(name: "Diarydb")
-        let container: NSPersistentCloudKitContainer = NSPersistentCloudKitContainer(name: "Diarydb")
+    let container: NSPersistentCloudKitContainer = NSPersistentCloudKitContainer(name: "Diarydb")
 
     
     // Default init method. Load the Core Data container

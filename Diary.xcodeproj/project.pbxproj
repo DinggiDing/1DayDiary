@@ -31,6 +31,7 @@
 		7E2611492BB443E800D3BEA5 /* TabBarContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2611482BB443E800D3BEA5 /* TabBarContainer.swift */; };
 		7E26114B2BB4442000D3BEA5 /* MaterialTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E26114A2BB4442000D3BEA5 /* MaterialTabBar.swift */; };
 		7E26114D2BB4444600D3BEA5 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E26114C2BB4444600D3BEA5 /* TabBarItem.swift */; };
+		7E29921C2C1F17CD00EDC195 /* CountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E29921B2C1F17CD00EDC195 /* CountdownView.swift */; };
 		7E2B8B612BF26154008826EB /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 7E2B8B602BF26154008826EB /* SwiftUICharts */; };
 		7E2C3BC12BA0F20100543157 /* PopupBottomFirst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2C3BC02BA0F20100543157 /* PopupBottomFirst.swift */; };
 		7E2F14362BB6CE61000CF20D /* SUIT-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7E2F14352BB6CE60000CF20D /* SUIT-Bold.otf */; };
@@ -57,6 +58,7 @@
 		7E7D54D92C05DF8D0022A7D3 /* NotoSansKR-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7E7D54D82C05DF8D0022A7D3 /* NotoSansKR-Regular.ttf */; };
 		7E7D54DC2C05DFA40022A7D3 /* NotoSansKR-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7E7D54DA2C05DFA40022A7D3 /* NotoSansKR-Medium.ttf */; };
 		7E7D54DD2C05DFA40022A7D3 /* NotoSansKR-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7E7D54DB2C05DFA40022A7D3 /* NotoSansKR-Bold.ttf */; };
+		7E852D492C37E52F00777A34 /* LPNotiSys in Frameworks */ = {isa = PBXBuildFile; productRef = 7E852D482C37E52F00777A34 /* LPNotiSys */; };
 		7E87AA602BEAA19A002648EA /* AppleSignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E87AA5F2BEAA19A002648EA /* AppleSignView.swift */; };
 		7E87AA622BEAA248002648EA /* AuthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E87AA612BEAA248002648EA /* AuthenticatedView.swift */; };
 		7E87AA662BEAA456002648EA /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E87AA652BEAA456002648EA /* AuthenticationViewModel.swift */; };
@@ -123,6 +125,7 @@
 		7E2611482BB443E800D3BEA5 /* TabBarContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarContainer.swift; sourceTree = "<group>"; };
 		7E26114A2BB4442000D3BEA5 /* MaterialTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialTabBar.swift; sourceTree = "<group>"; };
 		7E26114C2BB4444600D3BEA5 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
+		7E29921B2C1F17CD00EDC195 /* CountdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownView.swift; sourceTree = "<group>"; };
 		7E2C3BC02BA0F20100543157 /* PopupBottomFirst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupBottomFirst.swift; sourceTree = "<group>"; };
 		7E2F14352BB6CE60000CF20D /* SUIT-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-Bold.otf"; sourceTree = "<group>"; };
 		7E2F14372BB6CE76000CF20D /* SUIT-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-Medium.otf"; sourceTree = "<group>"; };
@@ -180,6 +183,7 @@
 				7E3136332BAD34AA0073659C /* Kingfisher in Frameworks */,
 				7EF834D02BE4A1240037D016 /* Collections in Frameworks */,
 				7E1619832BFCEFF60068FF0D /* SwiftUIIntrospect in Frameworks */,
+				7E852D492C37E52F00777A34 /* LPNotiSys in Frameworks */,
 				7E34C9112BA8224D0021A56D /* Drops in Frameworks */,
 				7E245E712B9ACEA00006FE90 /* ExyteMediaPicker in Frameworks */,
 				7E2B8B612BF26154008826EB /* SwiftUICharts in Frameworks */,
@@ -319,13 +323,13 @@
 			isa = PBXGroup;
 			children = (
 				7EAFC55A2B9B5AF6002133B4 /* EditView2.swift */,
+				7E3827402BB9690700CCD7E6 /* EditTodayView.swift */,
+				7E638C8A2BB069AE0036B863 /* ShowView.swift */,
+				7EF9866E2BA5E3BE00A62A93 /* publishButton.swift */,
+				7ED620E42BEFC87F00F2398C /* updateButton.swift */,
 				7E2C3BC02BA0F20100543157 /* PopupBottomFirst.swift */,
 				7E32A6DD2BA4585D002B854C /* PopupBottomSecond.swift */,
 				7E0025662BA32305001FBF13 /* FavoriteBackyardTip.swift */,
-				7EF9866E2BA5E3BE00A62A93 /* publishButton.swift */,
-				7ED620E42BEFC87F00F2398C /* updateButton.swift */,
-				7E638C8A2BB069AE0036B863 /* ShowView.swift */,
-				7E3827402BB9690700CCD7E6 /* EditTodayView.swift */,
 			);
 			path = EditView;
 			sourceTree = "<group>";
@@ -388,6 +392,7 @@
 			children = (
 				7ED620E62BEFEC7800F2398C /* HighlightView.swift */,
 				7E0138442BF3A05700012D1C /* CircularProgressView.swift */,
+				7E29921B2C1F17CD00EDC195 /* CountdownView.swift */,
 			);
 			path = HighlightView;
 			sourceTree = "<group>";
@@ -442,6 +447,7 @@
 				7E163B272BE76D630019609D /* FirebaseAuth */,
 				7E2B8B602BF26154008826EB /* SwiftUICharts */,
 				7E1619822BFCEFF60068FF0D /* SwiftUIIntrospect */,
+				7E852D482C37E52F00777A34 /* LPNotiSys */,
 			);
 			productName = Diary;
 			productReference = 7E1104B82B8B64500012DFD4 /* Diary.app */;
@@ -524,6 +530,7 @@
 				7E163B262BE76D630019609D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				7E2B8B5B2BF24CDD008826EB /* XCRemoteSwiftPackageReference "ChartView" */,
 				7E1619812BFCEFF60068FF0D /* XCRemoteSwiftPackageReference "swiftui-introspect" */,
+				7E852D472C37E52F00777A34 /* XCRemoteSwiftPackageReference "LPNotiSys" */,
 			);
 			productRefGroup = 7E1104B92B8B64500012DFD4 /* Products */;
 			projectDirPath = "";
@@ -607,6 +614,7 @@
 				7E32A6DE2BA4585D002B854C /* PopupBottomSecond.swift in Sources */,
 				7ED620E52BEFC87F00F2398C /* updateButton.swift in Sources */,
 				7E3827412BB9690700CCD7E6 /* EditTodayView.swift in Sources */,
+				7E29921C2C1F17CD00EDC195 /* CountdownView.swift in Sources */,
 				7E763EF42B935BED00A1BF47 /* Diarydb.xcdatamodeld in Sources */,
 				7EAFC55B2B9B5AF6002133B4 /* EditView2.swift in Sources */,
 				7E32A6E02BA4A132002B854C /* Mockdata2.swift in Sources */,
@@ -1031,6 +1039,14 @@
 				minimumVersion = 1.7.0;
 			};
 		};
+		7E852D472C37E52F00777A34 /* XCRemoteSwiftPackageReference "LPNotiSys" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/DinggiDing/LPNotiSys";
+			requirement = {
+				kind = exactVersion;
+				version = 1.0.1;
+			};
+		};
 		7EF834CC2BE4A1240037D016 /* XCRemoteSwiftPackageReference "swift-collections" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/swift-collections.git";
@@ -1076,6 +1092,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7E34C90F2BA821F10021A56D /* XCRemoteSwiftPackageReference "Drops" */;
 			productName = Drops;
+		};
+		7E852D482C37E52F00777A34 /* LPNotiSys */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7E852D472C37E52F00777A34 /* XCRemoteSwiftPackageReference "LPNotiSys" */;
+			productName = LPNotiSys;
 		};
 		7EF834CD2BE4A1240037D016 /* BitCollections */ = {
 			isa = XCSwiftPackageProductDependency;

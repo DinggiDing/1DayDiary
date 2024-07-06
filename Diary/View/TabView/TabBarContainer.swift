@@ -10,7 +10,8 @@ import SwiftUI
 struct TabBarContainer<Content: View>: View {
     let content: Content
     @Binding var selection: TabBarItem
-    @State private var tabs: [TabBarItem] = []
+    @State private var tabs: [TabBarItem] = [.home, .favorites, .messages, .profile]
+
     
     @Binding var isHiding : Bool
     
@@ -23,15 +24,19 @@ struct TabBarContainer<Content: View>: View {
     
     var body: some View {
         ZStack {
-            content
-                .ignoresSafeArea()
+            TabView(selection: $selection, content: {
+                Group {
+                    content
+                        .ignoresSafeArea()
+                }
+                .toolbar(.automatic, for: .tabBar)
+                .toolbarBackground(.hidden, for: .tabBar)
+            })
+            
             MaterialTabBar(tabs: tabs,
                            selection: $selection,
                            localSelection: selection)
             .opacity(isHiding ? 0 : 1)
         }
-        .onPreferenceChange(TabBarItemPreferenceKey.self, perform: { value in
-            self.tabs = value
-        })
     }
 }

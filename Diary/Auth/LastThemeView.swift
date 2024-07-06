@@ -21,6 +21,8 @@ struct LastThemeView: View {
             fontradioButton(tag: .c, selection: $selectedOption, label: "SUITE", font: "SUITE-Light")
             fontradioButton(tag: .d, selection: $selectedOption, label: "RIDIBatang", font: "RIDIBatang")
         }
+        .background(Color.ivory1)
+        .scrollContentBackground(.hidden)
         .onChange(of: selectedOption) {
             switch selectedOption {
             case .a:

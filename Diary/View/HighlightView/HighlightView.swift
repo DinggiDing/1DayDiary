@@ -34,7 +34,19 @@ struct HighlightView: View {
             ScrollView {
                 if !todos.isEmpty {
                     VStack {
+                        
+                        if !Date().checkBoolDateIsWithinRange(date: todos[0].date!) {
+                            Spacer().frame(height: 32)
+                            CountdownView()
+                        }
                         Spacer().frame(height: 32)
+
+                        Rectangle().frame(height: 1, alignment: .center)
+                            .padding(.leading, 28)
+                            .padding(.trailing, 28)
+                            .foregroundStyle(.gray5)
+                        
+                        Spacer().frame(height: 28)
                         
                         HStack {
                             Spacer().frame(width: 15)
@@ -46,7 +58,7 @@ struct HighlightView: View {
                                     HStack {
                                         Text("\(Date().formatDate(Date.now, using: .month_text))")
                                             .foregroundStyle(.black)
-                                            .font(.custom("SUIT-Semibold", size: 20))
+                                            .font(.custom("SUITE-Medium", size: 16))
                                         Spacer()
                                     }
                                     .padding()
@@ -57,9 +69,9 @@ struct HighlightView: View {
                                             CircularProgressView(progress: CGFloat(todoarrfilter_count/100))
                                             HStack {
                                                 Text("\(Int(todoarrfilter_count))%")
-                                                    .foregroundStyle(.subpoint)
+                                                    .foregroundStyle(.black)
                                                     .multilineTextAlignment(.leading)
-                                                    .font(.custom("SUIT-Bold", size: 20))
+                                                    .font(.custom("SUIT-SemiBold", size: 19))
                                                     .clipped()
 
                                             }
@@ -74,20 +86,23 @@ struct HighlightView: View {
                             
                             Spacer().frame(width: 15)
                             ZStack {
-                                RoundedRectangle(cornerRadius: 15.0)
-                                    .fill(
-                                        AngularGradient(gradient: Gradient(colors: [Color.mainpoint, Color.maingra]),
-                                                        center: .bottomLeading,
-                                                       angle: .degrees(0 + 45))
-                                    )
-                                    .shadow(color: .black.opacity(0.08), radius: 5, x: 0, y: 5)
+//                                RoundedRectangle(cornerRadius: 15.0)
+//                                    .fill(
+//                                        AngularGradient(gradient: Gradient(colors: [Color.mainpoint, Color.maingra]),
+//                                                        center: .bottomLeading,
+//                                                       angle: .degrees(0 + 45))
+//                                    )
+//                                    .shadow(color: .black.opacity(0.08), radius: 5, x: 0, y: 5)
 
+
+                                RoundedRectangle(cornerRadius: 15.0).foregroundStyle(.white)
+                                    .shadow(color: .black.opacity(0.08), radius: 5, x: 0, y: 5)
                                 
                                 VStack {
                                     HStack {
                                         Text("Diarys")
-                                            .font(.custom("SUIT-Bold", size: 18))
-                                            .foregroundStyle(.whitegray)
+                                            .font(.custom("SUITE-Medium", size: 16))
+                                            .foregroundStyle(.black)
                                         Spacer()
                                     }
                                     .padding()
@@ -97,7 +112,7 @@ struct HighlightView: View {
                                         
                                         Text("\(todos.count)")
                                             .font(.custom("SUIT-Bold", size: 40))
-                                            .foregroundStyle(.white)
+                                            .foregroundStyle(.maingra)
                                         Spacer()
                                     }
                                     .padding()
@@ -275,6 +290,9 @@ struct HighlightView: View {
                     Spacer().frame(height: 80)
 
                 } else {
+                    
+                    Spacer().frame(height: 32)
+                    CountdownView()
                     Spacer()
                         .frame(height: 100)
                     Image("emptybox")
@@ -288,8 +306,9 @@ struct HighlightView: View {
 
                 }
             }
+            .scrollIndicators(.hidden)
             .frame(width: AppConfig.homeWidth)
-            .background(.white)
+            .background(.ivory)
             .navigationTitle("Yours")
         })
         .onAppear {
@@ -305,7 +324,7 @@ struct HighlightView: View {
                 todoarrfilter_count = arrfilter(array: todoarr)
             }
         }
-        .onReceive(todos.publisher.collect(), perform: { objects in
+        .onReceive(todos.publisher.collect().receive(on: DispatchQueue.main), perform: { objects in
             if !todos.isEmpty {
                 todoarr = Array(todos)
                 tododict = Dictionary(grouping: todoarr, by: { Int($0.emotions) })

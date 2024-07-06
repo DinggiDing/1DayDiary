@@ -43,37 +43,29 @@ struct MainView: View {
     }
     
     var body: some View {
-            TabBarContainer(selection: $tabSelection, isHiding: $isHiding) {
-                
-                ContentView(isHiding: $isHiding)
-                    .tabBarItem(tab: .home, selection: $tabSelection)
-                
-                MemoryView()
-                    .tabBarItem(tab: .favorites, selection: $tabSelection)
+        TabBarContainer(selection: $tabSelection, isHiding: $isHiding) {
+            
+            ContentView(isHiding: $isHiding)
+                .tag(TabBarItem.home)
+            
+            MemoryView()
+                .tag(TabBarItem.favorites)
 
-                HighlightView()
-                    .tabBarItem(tab: .messages, selection: $tabSelection)
-                
-                LastView()
-                    .environmentObject(viewModel)
-                    .tabBarItem(tab: .profile, selection: $tabSelection)
 
-            }
-            .animation(.easeInOut, value: tabSelection)
-            .navigationTitle("")
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationBarBackButtonHidden(true)
-            .navigationBarHidden(true)
-        
-    }
-    
-    /// 탭 테스트를 위한 코드
-    @ViewBuilder
-    func SampleTabView(_ title: String, _ icon: String) -> some View {
-        Text(title)
-            .tabItem {
-                Image(systemName: icon)
-            }
+            HighlightView()
+                .tag(TabBarItem.messages)
+            
+            LastView()
+                .tag(TabBarItem.profile)
+                .environmentObject(viewModel)
+
+        }
+        .animation(.easeInOut, value: tabSelection)
+        .navigationTitle("")
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
+        .navigationBarHidden(true)
+
     }
 }
 

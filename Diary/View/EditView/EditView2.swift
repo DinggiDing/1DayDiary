@@ -11,9 +11,6 @@ import TipKit
 import SwiftUIIntrospect
 
 struct EditView2: View {
-//    // MARK: Core data variables
-//   @EnvironmentObject var manager: DataManager
-//   @Environment(\.managedObjectContext) var viewContext
     
     @Binding var isPresented: Bool
     @Binding var isHiding: Bool
@@ -161,7 +158,8 @@ struct EditView2: View {
         
                                         if maintext.isEmpty {
                                             VStack {
-                                                Text(Date().formatDate(Date().checkDateWithinRange(date: Date.now), using: .month_day_text))
+//                                                Text(Date().formatDate(Date().checkDateWithinRange(date: Date.now), using: .month_day_text))
+                                                Text("Publish 버튼을 길게 눌러 일기를 등록하세요.")
                                                     .font(.custom(fontvalue, size: 16))
                                                     .lineSpacing(/*@START_MENU_TOKEN@*/10.0/*@END_MENU_TOKEN@*/)
                                                     .foregroundStyle(Color.gray.opacity(0.55))
@@ -170,6 +168,7 @@ struct EditView2: View {
                                                     .padding(.leading, 6)
                                                 Spacer()
                                             }
+                                            .allowsHitTesting(false)
                                         }
                                     }
                                     Spacer()

@@ -25,9 +25,14 @@ struct CountdownView: View {
                 Text("오늘의 기억을 기록할 남은 시간")
                     .font(.custom("SUITE-Medium", size: 16))
                     .padding(4)
-                Text(viewModel.timeRemaining)
-                    .font(.largeTitle)
-                    .monospacedDigit()
+                if viewModel.timeRemaining.isEmpty {
+                    ProgressView()
+                        .padding()
+                } else {
+                    Text(viewModel.timeRemaining)
+                        .font(.largeTitle)
+                        .monospacedDigit()
+                }
                 ProgressView(value: viewModel.progress)
                     .progressViewStyle(LinearProgressViewStyle())
                     .tint(.maingra)

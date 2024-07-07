@@ -23,8 +23,8 @@ class DataManager: NSObject, ObservableObject {
         super.init()
         container.loadPersistentStores { _, _ in }
         
-    //        container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy // in-memory와 영구 저장소 merge 충돌: in-memory우선
-    //               container.viewContext.shouldDeleteInaccessibleFaults = true // 접근 불가의 결함들을 삭제할 수 있게끔 설정
-    //               container.viewContext.automaticallyMergesChangesFromParent = true // parent의 context가 바뀌면 자동으로 merge되는 설정
-    }
+            container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy // in-memory와 영구 저장소 merge 충돌: in-memory우선
+//                   container.viewContext.shouldDeleteInaccessibleFaults = true // 접근 불가의 결함들을 삭제할 수 있게끔 설정
+           container.viewContext.automaticallyMergesChangesFromParent = true // parent의 context가 바뀌면 자동으로 merge되는 설정
+}
 }

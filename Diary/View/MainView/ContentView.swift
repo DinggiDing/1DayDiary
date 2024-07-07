@@ -178,6 +178,9 @@ struct ContentView: View {
                                                             LazyHGrid(rows: columns, spacing: 10) {
                                                                 ForEach(todo.image, id: \.self) { images in
                                                                     KFImage.url(images)
+                                                                        .placeholder { //플레이스 홀더 설정
+                                                                              Image(systemName: "photo")
+                                                                          }.retry(maxCount: 3, interval: .seconds(5))
                                                                         .resizable()
                                                                         .scaledToFill()
                                                                         .frame(width: 119, height: 153)
@@ -233,6 +236,8 @@ struct ContentView: View {
                     today_on = false
                 }
                 isHiding = false
+                
+                print("+++++++++++++ \(todos.first?.image)")
             }
             
             .navigationDestination(isPresented: $isShowingEditForm, destination: {

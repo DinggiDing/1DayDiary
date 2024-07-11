@@ -50,6 +50,7 @@ struct CountdownView: View {
 
 #Preview {
     CountdownView()
+        .environment(\.locale, .init(identifier: "ja"))
 }
 
 class CountdownViewModel: ObservableObject {

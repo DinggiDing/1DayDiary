@@ -12,6 +12,7 @@ import Photos
 
 struct ContentView: View {
     
+    @Environment(\.locale) var locale: Locale
     @State var isShowingEditForm: Bool = false
     
     /// coredata
@@ -74,7 +75,7 @@ struct ContentView: View {
                                         .aspectRatio(contentMode: .fit)
                                         .frame(width: 5, height: 5)
                                     Text(Date().checkDateWithinRange(date: Date.now), format: .dateTime.day(.twoDigits).month(.twoDigits))
-                                        .font(.custom("SUIT-Semibold", size: 16))
+                                        .font(Font.SUIT_SemiBold_16(locale: locale))
                                         .foregroundStyle(.accent)
                                    
                                     Spacer()
@@ -101,7 +102,7 @@ struct ContentView: View {
                                             .aspectRatio(contentMode: .fit)
                                             .frame(width: 5, height: 5)
                                         Text(Date().checkDateWithinRange(date: Date.now), format: .dateTime.day(.twoDigits).month(.twoDigits))
-                                            .font(.custom("SUIT-Semibold", size: 16))
+                                            .font(Font.SUIT_SemiBold_16(locale: locale))
                                             .foregroundStyle(.accent)
                                         
                                         Spacer()
@@ -134,12 +135,12 @@ struct ContentView: View {
                                                 
                                                 if Date().checkBoolDateIsWithinRange(date: todo.date!) {
                                                     Text(Date().checkDateWithinRange(date: Date.now), format: .dateTime.day(.twoDigits).month(.twoDigits))
-                                                        .font(.custom("SUIT-Semibold", size: 16))
+                                                        .font(Font.SUIT_SemiBold_16(locale: locale))
                                                         .foregroundStyle(.accent)
                                                 }
                                                 else {
                                                     Text(todo.date ?? Date.now, format: .dateTime.day(.twoDigits).month(.twoDigits))
-                                                        .font(.SUIT_Regular)
+                                                        .font(Font.SUIT_Regular(locale: locale))
                                                         .foregroundColor(.gray)
                                                 }
                                                 
@@ -176,18 +177,8 @@ struct ContentView: View {
                                                         ScrollView(.horizontal) {
                                                             LazyHGrid(rows: columns, spacing: 10) {
                                                                 ForEach(todo.image, id: \.self) { images in
-//                                                                    let _ = print("NAMES : \(images)")
                                                                     ContentImageView(imagePath: images)
-//                                                                    var url : URL = URL(fileURLWithPath: images)
-//                                                                    KFImage.url(URL(fileURLWithPath: images))
-////                                                                        .placeholder { //플레이스 홀더 설정
-////                                                                              ProgressView()
-////                                                                          }.retry(maxCount: 10, interval: .seconds(5))
-//                                                                        .resizable()
-//                                                                        .scaledToFill()
-//                                                                        .frame(width: 119, height: 153)
-//                                                                        .clipped()
-                                                                           
+
                                                                 }
                                                             }.frame(height: 150)
                                                         }
@@ -270,10 +261,6 @@ struct ContentImageView: View {
 
     var body: some View {
         VStack {
-            //        let url = URL(fileURLWithPath: imagePath)
-                
-            
-//            KFImage(source: .provider(LocalFileImageDataProvider(fileURL: imagePath)))
             KFImage(imagePath)
                 .placeholder { // 플레이스 홀더 설정
                     ProgressView()
@@ -293,9 +280,7 @@ struct ContentImageView: View {
 //                ProgressView()
 //                
 //            })
-            
-//            MediaCell2(imageURL: imagePath)
-            
+                        
         }
         
     }

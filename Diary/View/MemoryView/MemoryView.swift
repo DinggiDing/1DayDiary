@@ -12,6 +12,7 @@ struct MemoryView: View {
     
 //    @State private var filterScope: FilterScope = FilterScope(filter: Date.now, filter_on: false)
     @FetchRequest(sortDescriptors: [SortDescriptor(\.date)]) private var todos: FetchedResults<DB_core>
+    @Environment(\.locale) var locale: Locale
 
     let columns = [
         GridItem(.flexible()),
@@ -47,7 +48,7 @@ struct MemoryView: View {
                                             .foregroundStyle(.black)
                                             .lineLimit(3)
                                             .multilineTextAlignment(.leading)
-                                            .font(.Arita_buriBold_edt)
+                                            .font(Font.Arita_buriBold_edt(locale: locale))
                                             .frame(width: AppConfig.homeWidth/2-1)
                                             .blur(radius: 3)
                                             .clipped()

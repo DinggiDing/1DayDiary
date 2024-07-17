@@ -27,7 +27,7 @@ class Mockdata {
         "snowflake"
     ]
     
-    static let textnames = [
+    static let textnames: [LocalizedStringKey] = [
         "맑음",
         "흐림",
         "바람",

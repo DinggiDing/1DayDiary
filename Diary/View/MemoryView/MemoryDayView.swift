@@ -11,6 +11,7 @@ import Kingfisher
 struct MemoryDayView: View {
     
     @Environment(\.dismiss) var dismiss
+    @Environment(\.locale) var locale: Locale
 
     
     var titlestring: String
@@ -51,7 +52,7 @@ struct MemoryDayView: View {
                                     .foregroundStyle(.black)
                                     .lineLimit(3)
                                     .multilineTextAlignment(.leading)
-                                    .font(.Arita_buriBold_edt)
+                                    .font(Font.Arita_buriBold_edt(locale: locale))
                                     .frame(width: AppConfig.homeWidth/2-1)
                                     .blur(radius: 3)
                                     .clipped()
@@ -66,7 +67,7 @@ struct MemoryDayView: View {
                                 HStack {
                                     Text(Date().formatDate(index.date!, using: .month_day))
                                         .foregroundStyle(.white)
-                                        .font(.custom("SUIT-Regular", size: 15))
+                                        .font(Font.memoryday_suit(locale: locale))
                                     Text("·")
                                         .foregroundStyle(.white)
                                         .font(.custom("SUIT-Bold", size: 16))
@@ -74,7 +75,7 @@ struct MemoryDayView: View {
                                         .padding(.trailing, 4)
                                     Text(index.title!)
                                         .foregroundStyle(.white)
-                                        .font(.custom("SUIT-Regular", size: 15))
+                                        .font(Font.memoryday_suit(locale: locale))
                                     Spacer()
                                     Spacer()
 //                                    Spacer()

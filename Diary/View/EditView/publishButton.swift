@@ -26,12 +26,13 @@ struct publishButton: View {
     @Binding var donedone : Bool
     
     @GestureState var topG = false
+    @Environment(\.locale) var locale: Locale
     
     var body: some View {
         LongPressButton(
             title: "Publish"
         ) {
-            self.saveTodo(title: title=="" ? Date().formatDate(Date().checkDateWithinRange(date: Date.now), using: .month_day_text) : title, date: Date.now, status: status, image: image, emotions: Int16(emotions), weathers: Int16(weathers), text_align: text_align, text_spacing: Int16(text_spacing))
+            self.saveTodo(title: title=="" ? Date().formatDate(Date().checkDateWithinRange(date: Date.now), locale: locale) : title, date: Date.now, status: status, image: image, emotions: Int16(emotions), weathers: Int16(weathers), text_align: text_align, text_spacing: Int16(text_spacing))
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 donedone.toggle()
             }

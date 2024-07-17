@@ -27,6 +27,7 @@ struct HighlightView: View {
     @State var todoran: Int = 0
     
     @AppStorage("MyfontValue") private var fontvalue: String = "Arita-buri-Medium_OTF"
+    @Environment(\.locale) var locale: Locale
 
     
     var body: some View {
@@ -141,7 +142,7 @@ struct HighlightView: View {
                                     HStack {
                                         Text(todos[todoran].title ?? "")
                                             .lineLimit(1)
-                                            .font(.custom("SUIT-Bold", size: 18))
+                                            .font(Font.SUIT_Bold(locale: locale))
                                             .foregroundStyle(.black)
                                         Spacer()
                                         Spacer()
@@ -152,7 +153,7 @@ struct HighlightView: View {
                                     HStack {
                                         Text(todos[todoran].date ?? Date.now, format: .dateTime.day(.twoDigits).month(.twoDigits))
                                             .lineLimit(1)
-                                            .font(.custom("NotoSansKR-Regular", size: 14))
+                                            .font(Font.NotoSansKR_Regular_14(locale: locale))
                                             .foregroundColor(.gray)
                                         Spacer()
                                     }
@@ -163,7 +164,7 @@ struct HighlightView: View {
                                     HStack {
                                         Text(todos[todoran].status!)
                                             .lineLimit(3)
-                                            .font(.custom("NotoSansKR-Regular", size: 15))
+                                            .font(Font.NotoSansKR_Regular_15(locale: locale))
                                             .foregroundColor(.black)
                                             .lineSpacing(7.0)
                                         Spacer()
@@ -199,7 +200,7 @@ struct HighlightView: View {
                                     .foregroundStyle(.black)
                                     .lineLimit(3)
                                     .multilineTextAlignment(.leading)
-                                    .font(.Arita_buriBold_edt)
+                                    .font(Font.Arita_buriBold_edt(locale: locale))
                                     .frame(width: AppConfig.homeWidth)
                                     .blur(radius: 3)
                                     .clipped()
@@ -214,7 +215,7 @@ struct HighlightView: View {
                                 HStack {
                                     Text(todos[0].title!)
                                         .foregroundStyle(.white)
-                                        .font(.custom("SUIT-Bold", size: 16))
+                                        .font(Font.SUIT_Bold_16(locale: locale))
                                     Spacer()
                                     Spacer()
                                 }
@@ -276,7 +277,7 @@ struct HighlightView: View {
                                             angularInset: 1.5
                                         )
                                         .cornerRadius(5)
-                                        .foregroundStyle(by: .value("Name", Mockdata2.textnames2[key]))
+                                        .foregroundStyle(by: .value("Name", String(localized: String.LocalizationValue(stringLiteral: Mockdata2.textnames2[key]))))
                                     }
                                     .frame(width: AppConfig.homeWidth/2, height: AppConfig.homeWidth/1.5)
                                     

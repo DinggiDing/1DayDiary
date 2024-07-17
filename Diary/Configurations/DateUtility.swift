@@ -106,15 +106,35 @@ extension Date {
         formatter.dateFormat = format.rawValue
         return formatter.string(from: date)
     }
+    
+    func formatDate(_ date: Date, locale: Locale) -> String {
+        var format : DateFormat_date = .month_day_text
+        if let languageCode = locale.language.languageCode?.identifier {
+            switch languageCode {
+            case "ja":
+                format = .month_day_text_ja
+            case "ko":
+                format = .month_day_text
+            default:
+                format = .month_day_text_en
+            }
+        }
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = format.rawValue
+        return formatter.string(from: date)
+    }
 }
 
 enum DateFormat_date: String {
     case year = "YYYY"
     case month = "MM"
     case month_day = "MM / dd"
-    case month_text = "MM월"
+    case month_text = "MMM"
     case day = "dd"
-    case month_day_text = "MM월 dd일 일기"
+    case month_day_text = "MMM dd일 일기"
+    case month_day_text_ja = "MMM dd日 日記"
+    case month_day_text_en = "MMM dd"
     case compare = "YYYYMMdd"
 }
 

@@ -44,7 +44,8 @@ struct EditView2: View {
     
     @AppStorage("MyfontValue") private var fontvalue: String = "Arita-buri-Medium_OTF"
     @AppStorage("MyTitlefontValue") private var titlefontvalue: String = "Arita-buri-Bold_OTF"
-    
+    @Environment(\.locale) var locale: Locale
+
     
     init(isPresented: Binding<Bool>, isHiding: Binding<Bool>, isThirdTab: Bool) {
         _isPresented = isPresented
@@ -72,7 +73,7 @@ struct EditView2: View {
                                     HStack {
                                         HStack(spacing: 5) {
                                             Text(Date().checkDateWithinRange(date: Date.now), format: .dateTime.day(.twoDigits).month(.twoDigits))
-                                                .font(.SUIT_Regular)
+                                                .font(Font.SUIT_Regular(locale: locale))
                                                 .foregroundStyle(Color("gray3"))
                                                 .popoverTip(tip)
                                             
@@ -99,7 +100,7 @@ struct EditView2: View {
                                     Spacer()
                                     
 //                                    TextField(formatDate(checkIfDateIsWithinRangeSave(date: Date.now)), text: $title, axis: .vertical)
-                                    TextField(Date().formatDate(Date().checkDateWithinRange(date: Date.now), using: .month_day_text), text: $title, axis: .vertical)
+                                    TextField(Date().formatDate(Date().checkDateWithinRange(date: Date.now), locale: locale), text: $title, axis: .vertical)
                                         .font(.custom(titlefontvalue, size: 20))
                                         .frame(width: 280, alignment: .leading)
                                         .accentColor(.gray)

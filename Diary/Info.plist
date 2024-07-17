@@ -20,6 +20,19 @@
 		<string>RIDIBatang.otf</string>
 		<string>SUITE-Light.otf</string>
 		<string>SUITE-Medium.otf</string>
+		<string>ZenMaruGothic-Light.ttf</string>
+		<string>ZenMaruGothic-Medium.ttf</string>
+		<string>IBMPlexSansJP-Light.ttf</string>
+		<string>IBMPlexSansJP-Medium.ttf</string>
+		<string>NotoSansJP-Light.ttf</string>
+		<string>NotoSansJP-Medium.ttf</string>
+		<string>NotoSerifJP-Light.ttf</string>
+		<string>NotoSerifJP-Medium.ttf</string>
+		<string>NotoSerifJP-Bold.ttf</string>
+		<string>IBMPlexSansJP-Regular.ttf</string>
+		<string>IBMPlexSansJP-Bold.ttf</string>
+		<string>IBMPlexSansJP-SemiBold.ttf</string>
+		<string>NotoSansJP-Regular.ttf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>

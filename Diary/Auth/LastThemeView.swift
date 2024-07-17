@@ -9,41 +9,25 @@ import SwiftUI
 
 struct LastThemeView: View {
 
-    @State var selectedOption: fontOption? = .a
+    @Environment(\.locale) var locale: Locale
+
+    @State var selectedOption: Country.FontOption? = .a
     @AppStorage("MyfontValue") private var fontvalue: String = "Arita-buri-Medium_OTF"
     @AppStorage("MyTitlefontValue") private var titlefontvalue: String = "Arita-buri-Bold_OTF"
 
     
     var body: some View {
         Form {
-            fontradioButton(tag: .a, selection: $selectedOption, label: "Aritaburi", font: "Arita-buri-Medium_OTF")
-            fontradioButton(tag: .b, selection: $selectedOption, label: "NotoSans", font: "NotoSansKR-Light")
-            fontradioButton(tag: .c, selection: $selectedOption, label: "SUITE", font: "SUITE-Light")
-            fontradioButton(tag: .d, selection: $selectedOption, label: "RIDIBatang", font: "RIDIBatang")
+            fontradioButton(tag: .a, selection: $selectedOption, font: FontManager.getFont(option: .a, type: .body, locale: locale))
+            fontradioButton(tag: .b, selection: $selectedOption, font: FontManager.getFont(option: .b, type: .body, locale: locale))
+            fontradioButton(tag: .c, selection: $selectedOption, font: FontManager.getFont(option: .c, type: .body, locale: locale))
+            fontradioButton(tag: .d, selection: $selectedOption, font: FontManager.getFont(option: .d, type: .body, locale: locale))
         }
         .background(Color.ivory1)
         .scrollContentBackground(.hidden)
         .onChange(of: selectedOption) {
-            switch selectedOption {
-            case .a:
-                fontvalue = "Arita-buri-Medium_OTF"
-                titlefontvalue = "Arita-buri-Bold_OTF"
-                
-            case .b:
-                fontvalue = "NotoSansKR-Light"
-                titlefontvalue = "NotoSansKR-Medium"
-
-            case .c:
-                fontvalue = "SUITE-Light"
-                titlefontvalue = "SUITE-Medium"
-
-            case .d:
-                fontvalue = "RIDIBatang"
-                titlefontvalue = "RIDIBatang"
-
-            default:
-                break
-            }
+            fontvalue = FontManager.getFont(option: selectedOption ?? .a, type: .body, locale: locale)
+            titlefontvalue = FontManager.getFont(option: selectedOption ?? .a, type: .title, locale: locale)
         }
         .onAppear {
             switch fontvalue {
@@ -55,6 +39,14 @@ struct LastThemeView: View {
                 selectedOption = .c
             case "RIDIBatang":
                 selectedOption = .d
+            case "NotoSerifJP-Light":
+                selectedOption = .a
+            case "NotoSansJP-Light":
+                selectedOption = .b
+            case "IBMPlexSansJP-Light":
+                selectedOption = .c
+            case "ZenMaruGothic-Light":
+                selectedOption = .d
             default:
                 break
             }
@@ -64,23 +56,22 @@ struct LastThemeView: View {
 
 struct fontradioButton: View {
     @Binding private var isSelected: Bool
-    private let label: String
+//    private let label: String
     private let font: String
     @State private var animate: Bool = false
     
-    init(isSelected: Binding<Bool>, label: String = "", font: String = "") {
-      self._isSelected = isSelected
-      self.label = label
-        self.font = font
-    }
+//    init(isSelected: Binding<Bool>, label: String = "", font: String = "") {
+//      self._isSelected = isSelected
+//      self.label = label
+//        self.font = font
+//    }
     
     // To support multiple options
-    init<V: Hashable>(tag: V, selection: Binding<V?>, label: String = "", font: String = "") {
+    init<V: Hashable>(tag: V, selection: Binding<V?>, font: String = "") {
           self._isSelected = Binding(
             get: { selection.wrappedValue == tag },
             set: { _ in selection.wrappedValue = tag }
           )
-        self.label = label
         self.font = font
     }
 
@@ -114,8 +105,9 @@ struct fontradioButton: View {
                               animate.toggle()
                           }
                       }
-                Text(label)
+                Text(gettextfromFont(font: font))
                     .font(.custom(font, size: 16))
+                    .lineLimit(1)
                     .padding()
                 Spacer()
                 Rectangle().foregroundStyle(.white)
@@ -123,6 +115,11 @@ struct fontradioButton: View {
             .foregroundStyle(.black)
         }.listRowBackground(Color.white)
         .onTapGesture { isSelected = true }
+    }
+    
+    private func gettextfromFont(font: String) -> String {
+        let components = font.split(separator: "-")
+        return String(components[0])
     }
 }
 
@@ -140,12 +137,12 @@ struct AnimationProperties {
     var scaleValue: CGFloat = 1.0
 }
 
-enum fontOption {
-    case a
-    case b
-    case c
-    case d
-}
+//enum fontOption {
+//    case a
+//    case b
+//    case c
+//    case d
+//}
 
 #Preview {
     LastThemeView()

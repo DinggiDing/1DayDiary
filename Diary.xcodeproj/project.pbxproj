@@ -68,16 +68,29 @@
 		7EAFC55B2B9B5AF6002133B4 /* EditView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAFC55A2B9B5AF6002133B4 /* EditView2.swift */; };
 		7EB862FA2B9592D80079AE88 /* SUIT-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7EB862F92B9592D80079AE88 /* SUIT-Regular.otf */; };
 		7EBB14362B8CC4AA00A3C4DB /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBB14352B8CC4AA00A3C4DB /* MainView.swift */; };
-		7EC62A792C08B15A00DE49EE /* mongdol.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7EC62A782C08B15900DE49EE /* mongdol.ttf */; };
 		7EC62A7B2C08B9A200DE49EE /* SUITE-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7EC62A7A2C08B9A200DE49EE /* SUITE-Light.otf */; };
 		7EC62A7D2C08B9BD00DE49EE /* SUITE-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7EC62A7C2C08B9BD00DE49EE /* SUITE-Medium.otf */; };
 		7ECED34C2C18342D007C7998 /* DateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECED34B2C18342D007C7998 /* DateUtility.swift */; };
 		7ECED34E2C184748007C7998 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECED34D2C184748007C7998 /* Utility.swift */; };
+		7ECFC46E2C4526860013ABA9 /* NotoSerifJP-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7ECFC46C2C4526850013ABA9 /* NotoSerifJP-Medium.ttf */; };
+		7ECFC46F2C4526860013ABA9 /* NotoSerifJP-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7ECFC46D2C4526860013ABA9 /* NotoSerifJP-Light.ttf */; };
+		7ECFC4722C4526AD0013ABA9 /* NotoSansJP-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7ECFC4702C4526AD0013ABA9 /* NotoSansJP-Medium.ttf */; };
+		7ECFC4732C4526AD0013ABA9 /* NotoSansJP-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7ECFC4712C4526AD0013ABA9 /* NotoSansJP-Light.ttf */; };
+		7ECFC4762C4526E10013ABA9 /* IBMPlexSansJP-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7ECFC4742C4526E10013ABA9 /* IBMPlexSansJP-Medium.ttf */; };
+		7ECFC4772C4526E10013ABA9 /* IBMPlexSansJP-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7ECFC4752C4526E10013ABA9 /* IBMPlexSansJP-Light.ttf */; };
+		7ECFC47A2C4527480013ABA9 /* ZenMaruGothic-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7ECFC4782C4527470013ABA9 /* ZenMaruGothic-Medium.ttf */; };
+		7ECFC47B2C4527480013ABA9 /* ZenMaruGothic-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7ECFC4792C4527480013ABA9 /* ZenMaruGothic-Light.ttf */; };
+		7ECFC47D2C454CBB0013ABA9 /* NotoSerifJP-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7ECFC47C2C454CBB0013ABA9 /* NotoSerifJP-Bold.ttf */; };
+		7ECFC47F2C4551F30013ABA9 /* IBMPlexSansJP-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7ECFC47E2C4551F30013ABA9 /* IBMPlexSansJP-Regular.ttf */; };
+		7ECFC4812C455C320013ABA9 /* IBMPlexSansJP-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7ECFC4802C455C320013ABA9 /* IBMPlexSansJP-Bold.ttf */; };
+		7ECFC4832C455C9D0013ABA9 /* NotoSansJP-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7ECFC4822C455C9D0013ABA9 /* NotoSansJP-Regular.ttf */; };
+		7ECFC4852C455FBC0013ABA9 /* IBMPlexSansJP-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7ECFC4842C455FBC0013ABA9 /* IBMPlexSansJP-SemiBold.ttf */; };
+		7ED0F16F2C3FF19500AC29AE /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 7ED0F16E2C3FF19400AC29AE /* Localizable.xcstrings */; };
+		7ED4B7602C43DD12005438EF /* FontUtililty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED4B75F2C43DD12005438EF /* FontUtililty.swift */; };
 		7ED620E52BEFC87F00F2398C /* updateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED620E42BEFC87F00F2398C /* updateButton.swift */; };
 		7ED620E72BEFEC7800F2398C /* HighlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED620E62BEFEC7800F2398C /* HighlightView.swift */; };
 		7EE31B732B90B8F800F5A287 /* Arita-buriM.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7EE31B6E2B90B8F800F5A287 /* Arita-buriM.otf */; };
 		7EE31B742B90B8F800F5A287 /* Arita-buriSB.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7EE31B6F2B90B8F800F5A287 /* Arita-buriSB.otf */; };
-		7EF224F72C3BE6C3006385E3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7EF224F52C3BE6C3006385E3 /* Localizable.strings */; };
 		7EF834CE2BE4A1240037D016 /* BitCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 7EF834CD2BE4A1240037D016 /* BitCollections */; };
 		7EF834D02BE4A1240037D016 /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = 7EF834CF2BE4A1240037D016 /* Collections */; };
 		7EF834D82BE4A1240037D016 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 7EF834D72BE4A1240037D016 /* OrderedCollections */; };
@@ -159,20 +172,31 @@
 		7EAFC55A2B9B5AF6002133B4 /* EditView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView2.swift; sourceTree = "<group>"; };
 		7EB862F92B9592D80079AE88 /* SUIT-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-Regular.otf"; sourceTree = "<group>"; };
 		7EBB14352B8CC4AA00A3C4DB /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		7EC62A782C08B15900DE49EE /* mongdol.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = mongdol.ttf; sourceTree = "<group>"; };
 		7EC62A7A2C08B9A200DE49EE /* SUITE-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUITE-Light.otf"; sourceTree = "<group>"; };
 		7EC62A7C2C08B9BD00DE49EE /* SUITE-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUITE-Medium.otf"; sourceTree = "<group>"; };
 		7ECED34B2C18342D007C7998 /* DateUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtility.swift; sourceTree = "<group>"; };
 		7ECED34D2C184748007C7998 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		7ECFC46C2C4526850013ABA9 /* NotoSerifJP-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSerifJP-Medium.ttf"; sourceTree = "<group>"; };
+		7ECFC46D2C4526860013ABA9 /* NotoSerifJP-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSerifJP-Light.ttf"; sourceTree = "<group>"; };
+		7ECFC4702C4526AD0013ABA9 /* NotoSansJP-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Medium.ttf"; sourceTree = "<group>"; };
+		7ECFC4712C4526AD0013ABA9 /* NotoSansJP-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Light.ttf"; sourceTree = "<group>"; };
+		7ECFC4742C4526E10013ABA9 /* IBMPlexSansJP-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSansJP-Medium.ttf"; sourceTree = "<group>"; };
+		7ECFC4752C4526E10013ABA9 /* IBMPlexSansJP-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSansJP-Light.ttf"; sourceTree = "<group>"; };
+		7ECFC4782C4527470013ABA9 /* ZenMaruGothic-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ZenMaruGothic-Medium.ttf"; sourceTree = "<group>"; };
+		7ECFC4792C4527480013ABA9 /* ZenMaruGothic-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ZenMaruGothic-Light.ttf"; sourceTree = "<group>"; };
+		7ECFC47C2C454CBB0013ABA9 /* NotoSerifJP-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSerifJP-Bold.ttf"; sourceTree = "<group>"; };
+		7ECFC47E2C4551F30013ABA9 /* IBMPlexSansJP-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSansJP-Regular.ttf"; sourceTree = "<group>"; };
+		7ECFC4802C455C320013ABA9 /* IBMPlexSansJP-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSansJP-Bold.ttf"; sourceTree = "<group>"; };
+		7ECFC4822C455C9D0013ABA9 /* NotoSansJP-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Regular.ttf"; sourceTree = "<group>"; };
+		7ECFC4842C455FBC0013ABA9 /* IBMPlexSansJP-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSansJP-SemiBold.ttf"; sourceTree = "<group>"; };
+		7ED0F16E2C3FF19400AC29AE /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		7ED4B75F2C43DD12005438EF /* FontUtililty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontUtililty.swift; sourceTree = "<group>"; };
 		7ED620E42BEFC87F00F2398C /* updateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updateButton.swift; sourceTree = "<group>"; };
 		7ED620E62BEFEC7800F2398C /* HighlightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightView.swift; sourceTree = "<group>"; };
 		7EE31B6D2B90B8F800F5A287 /* Arita-buriB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Arita-buriB.otf"; sourceTree = "<group>"; };
 		7EE31B6E2B90B8F800F5A287 /* Arita-buriM.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Arita-buriM.otf"; sourceTree = "<group>"; };
 		7EE31B6F2B90B8F800F5A287 /* Arita-buriSB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Arita-buriSB.otf"; sourceTree = "<group>"; };
 		7EE31B752B90B94000F5A287 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		7EF224F62C3BE6C3006385E3 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
-		7EF224F82C3BE717006385E3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		7EF224F92C3BE71E006385E3 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7EF9866E2BA5E3BE00A62A93 /* publishButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = publishButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -245,6 +269,8 @@
 			isa = PBXGroup;
 			children = (
 				7E163B2B2BE76DD60019609D /* Diary.entitlements */,
+				7ED0F16E2C3FF19400AC29AE /* Localizable.xcstrings */,
+				7E1104BF2B8B64520012DFD4 /* Assets.xcassets */,
 				7EE31B752B90B94000F5A287 /* Info.plist */,
 				7E34CAD72C148E5B008E535C /* GoogleService-Info.plist */,
 				7EE31B6A2B90B8C500F5A287 /* Font */,
@@ -256,9 +282,7 @@
 				7E34CAD02C148958008E535C /* View */,
 				7EBB14352B8CC4AA00A3C4DB /* MainView.swift */,
 				7E1104BB2B8B64500012DFD4 /* DiaryApp.swift */,
-				7E1104BF2B8B64520012DFD4 /* Assets.xcassets */,
 				7E1104C12B8B64520012DFD4 /* Preview Content */,
-				7EF224F52C3BE6C3006385E3 /* Localizable.strings */,
 			);
 			path = Diary;
 			sourceTree = "<group>";
@@ -296,6 +320,7 @@
 				7E32A6E12BA4A7A7002B854C /* Mockdata.swift */,
 				7ECED34B2C18342D007C7998 /* DateUtility.swift */,
 				7ECED34D2C184748007C7998 /* Utility.swift */,
+				7ED4B75F2C43DD12005438EF /* FontUtililty.swift */,
 			);
 			path = Configurations;
 			sourceTree = "<group>";
@@ -392,6 +417,26 @@
 			path = MemoryView;
 			sourceTree = "<group>";
 		};
+		7ECFC4862C4561400013ABA9 /* japanese */ = {
+			isa = PBXGroup;
+			children = (
+				7ECFC4842C455FBC0013ABA9 /* IBMPlexSansJP-SemiBold.ttf */,
+				7ECFC4822C455C9D0013ABA9 /* NotoSansJP-Regular.ttf */,
+				7ECFC4802C455C320013ABA9 /* IBMPlexSansJP-Bold.ttf */,
+				7ECFC47E2C4551F30013ABA9 /* IBMPlexSansJP-Regular.ttf */,
+				7ECFC47C2C454CBB0013ABA9 /* NotoSerifJP-Bold.ttf */,
+				7ECFC4792C4527480013ABA9 /* ZenMaruGothic-Light.ttf */,
+				7ECFC4782C4527470013ABA9 /* ZenMaruGothic-Medium.ttf */,
+				7ECFC4752C4526E10013ABA9 /* IBMPlexSansJP-Light.ttf */,
+				7ECFC4742C4526E10013ABA9 /* IBMPlexSansJP-Medium.ttf */,
+				7ECFC4712C4526AD0013ABA9 /* NotoSansJP-Light.ttf */,
+				7ECFC4702C4526AD0013ABA9 /* NotoSansJP-Medium.ttf */,
+				7ECFC46D2C4526860013ABA9 /* NotoSerifJP-Light.ttf */,
+				7ECFC46C2C4526850013ABA9 /* NotoSerifJP-Medium.ttf */,
+			);
+			path = japanese;
+			sourceTree = "<group>";
+		};
 		7ED620E82BEFEFA000F2398C /* HighlightView */ = {
 			isa = PBXGroup;
 			children = (
@@ -405,7 +450,7 @@
 		7EE31B6A2B90B8C500F5A287 /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				7EC62A782C08B15900DE49EE /* mongdol.ttf */,
+				7ECFC4862C4561400013ABA9 /* japanese */,
 				7E1619862BFE46440068FF0D /* RIDIBatang.otf */,
 				7E7D54DB2C05DFA40022A7D3 /* NotoSansKR-Bold.ttf */,
 				7E7D54DA2C05DFA40022A7D3 /* NotoSansKR-Medium.ttf */,
@@ -556,24 +601,36 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7ECFC47F2C4551F30013ABA9 /* IBMPlexSansJP-Regular.ttf in Resources */,
+				7ECFC4772C4526E10013ABA9 /* IBMPlexSansJP-Light.ttf in Resources */,
 				7EC62A7B2C08B9A200DE49EE /* SUITE-Light.otf in Resources */,
 				7E2F14392BB6CE77000CF20D /* SUIT-Medium.otf in Resources */,
 				7EE31B742B90B8F800F5A287 /* Arita-buriSB.otf in Resources */,
+				7ECFC4722C4526AD0013ABA9 /* NotoSansJP-Medium.ttf in Resources */,
 				7E7D54D92C05DF8D0022A7D3 /* NotoSansKR-Regular.ttf in Resources */,
+				7ECFC47B2C4527480013ABA9 /* ZenMaruGothic-Light.ttf in Resources */,
+				7ECFC47D2C454CBB0013ABA9 /* NotoSerifJP-Bold.ttf in Resources */,
+				7ECFC4762C4526E10013ABA9 /* IBMPlexSansJP-Medium.ttf in Resources */,
 				7EC62A7D2C08B9BD00DE49EE /* SUITE-Medium.otf in Resources */,
 				7E1619872BFE46440068FF0D /* RIDIBatang.otf in Resources */,
+				7ED0F16F2C3FF19500AC29AE /* Localizable.xcstrings in Resources */,
 				7E1104C32B8B64520012DFD4 /* Preview Assets.xcassets in Resources */,
 				7EE31B732B90B8F800F5A287 /* Arita-buriM.otf in Resources */,
 				7EB862FA2B9592D80079AE88 /* SUIT-Regular.otf in Resources */,
+				7ECFC4812C455C320013ABA9 /* IBMPlexSansJP-Bold.ttf in Resources */,
 				7E1104C02B8B64520012DFD4 /* Assets.xcassets in Resources */,
 				7E2F14362BB6CE61000CF20D /* SUIT-Bold.otf in Resources */,
 				7E34CAD82C148E5B008E535C /* GoogleService-Info.plist in Resources */,
+				7ECFC4732C4526AD0013ABA9 /* NotoSansJP-Light.ttf in Resources */,
+				7ECFC46E2C4526860013ABA9 /* NotoSerifJP-Medium.ttf in Resources */,
 				7E2F143A2BB6CE77000CF20D /* SUIT-SemiBold.otf in Resources */,
 				7E7D54DC2C05DFA40022A7D3 /* NotoSansKR-Medium.ttf in Resources */,
-				7EC62A792C08B15A00DE49EE /* mongdol.ttf in Resources */,
+				7ECFC4852C455FBC0013ABA9 /* IBMPlexSansJP-SemiBold.ttf in Resources */,
+				7ECFC4832C455C9D0013ABA9 /* NotoSansJP-Regular.ttf in Resources */,
 				7E1619852BFE45720068FF0D /* NotoSansKR-Light.ttf in Resources */,
-				7EF224F72C3BE6C3006385E3 /* Localizable.strings in Resources */,
+				7ECFC46F2C4526860013ABA9 /* NotoSerifJP-Light.ttf in Resources */,
 				7E20B44D2B920F7600892E17 /* Arita-buriB.otf in Resources */,
+				7ECFC47A2C4527480013ABA9 /* ZenMaruGothic-Medium.ttf in Resources */,
 				7E7D54DD2C05DFA40022A7D3 /* NotoSansKR-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -641,6 +698,7 @@
 				7E5CA7A92BB58DE200F2FEAB /* MemoryView.swift in Sources */,
 				7E34C90E2BA814E70021A56D /* ProfileView2.swift in Sources */,
 				7E1104BC2B8B64500012DFD4 /* DiaryApp.swift in Sources */,
+				7ED4B7602C43DD12005438EF /* FontUtililty.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -675,19 +733,6 @@
 			targetProxy = 7E1104D32B8B64520012DFD4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		7EF224F52C3BE6C3006385E3 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7EF224F62C3BE6C3006385E3 /* ko */,
-				7EF224F82C3BE717006385E3 /* en */,
-				7EF224F92C3BE71E006385E3 /* ja */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		7E1104DA2B8B64520012DFD4 /* Debug */ = {
@@ -1076,7 +1121,7 @@
 			repositoryURL = "https://github.com/DinggiDing/LPNotiSys";
 			requirement = {
 				kind = exactVersion;
-				version = 1.0.1;
+				version = 1.1.0;
 			};
 		};
 		7EF834CC2BE4A1240037D016 /* XCRemoteSwiftPackageReference "swift-collections" */ = {

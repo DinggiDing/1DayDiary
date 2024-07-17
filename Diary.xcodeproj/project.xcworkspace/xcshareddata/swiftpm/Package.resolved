@@ -141,8 +141,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/DinggiDing/LPNotiSys",
       "state" : {
-        "revision" : "b6ca14711687ed4adc4dd2a15babb6445434ecee",
-        "version" : "1.0.1"
+        "revision" : "0c2a3d2a3b0e24860f28e8d14048e848a67252e9",
+        "version" : "1.1.0"
       }
     },
     {

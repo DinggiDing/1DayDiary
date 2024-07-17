@@ -15,6 +15,8 @@ struct PopupBottomFirst: View {
     
     @State private var gotosecond: Bool = false
     @State private var didTap: [Bool] = [false, false, false, false, false]
+    @Environment(\.locale) var locale: Locale
+
     
     let columns = [
         GridItem(.flexible()),
@@ -26,10 +28,11 @@ struct PopupBottomFirst: View {
         NavigationStack {
             PopupBottomView(
                 title: "Weather",
-                items: Mockdata.textnames,
+                items: Mockdata.textnames,                                    
                 icons: Mockdata.iconImageNames,
                 didTap: $didTap,
-                columns: columns
+                columns: columns,
+                locale: locale
             ) { index in
                 handleTap(index: index)
             }
@@ -87,9 +90,11 @@ struct PopupBottomFirst: View {
 
 struct MainButton<Content: View>: View {
 
+    @Environment(\.locale) var locale: Locale
+
     var imageName: String
     var colorHex: String
-    var text: String
+    var text: LocalizedStringKey
     var didtap: Bool
     var width: CGFloat = 78
     @ViewBuilder var content: () -> Content
@@ -106,19 +111,20 @@ struct MainButton<Content: View>: View {
                     .foregroundColor(didtap ? .white : .black)
                     .padding(.bottom, 5)
                 Text(text).foregroundStyle(didtap ? .white : .black)
-                    .font(.custom("SUIT-Regular", size: 13))
+                    .font(Font.SUIT_Regular_13(locale: locale))
             }
         }
     }
 }
 
 @ViewBuilder
-func PopupBottomView(title: String, items: [String], icons: [String], didTap: Binding<[Bool]>, columns: [GridItem], onItemTap: @escaping (Int) -> Void) -> some View {
+func PopupBottomView(title: String, items: [LocalizedStringKey], icons: [String], didTap: Binding<[Bool]>, columns: [GridItem], locale: Locale, onItemTap: @escaping (Int) -> Void) -> some View {
+        
     VStack {
         Spacer()
         Text(title)
             .foregroundColor(.black)
-            .font(.custom("SUIT-Regular", size: 20))
+            .font(Font.SUIT_Regular_20(locale: locale))
         
         Spacer()
         

@@ -14,6 +14,7 @@ struct CountdownView: View {
     @State private var weightpercent: Double = 0.9
     
     @StateObject private var viewModel = CountdownViewModel()
+    @Environment(\.locale) var locale: Locale
 
 
     var body: some View {
@@ -23,7 +24,7 @@ struct CountdownView: View {
             VStack {
                 
                 Text("오늘의 기억을 기록할 남은 시간")
-                    .font(.custom("SUITE-Medium", size: 16))
+                    .font(Font.SUITE_Medium(locale: locale))
                     .padding(4)
                 if viewModel.timeRemaining.isEmpty {
                     ProgressView()
@@ -50,6 +51,7 @@ struct CountdownView: View {
 
 #Preview {
     CountdownView()
+        .environment(\.locale, .init(identifier: "ja"))
 }
 
 class CountdownViewModel: ObservableObject {

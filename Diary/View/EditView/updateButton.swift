@@ -10,8 +10,10 @@ import Drops
 
 struct updateButton: View {
     // MARK: Core data variables
-   @EnvironmentObject var manager: DataManager
-   @Environment(\.managedObjectContext) var viewContext
+    @EnvironmentObject var manager: DataManager
+    @Environment(\.managedObjectContext) var viewContext
+    @Environment(\.locale) var locale: Locale
+
     
     @Binding var title : String
     @Binding var status : String
@@ -45,7 +47,7 @@ struct updateButton: View {
         LongPressButton(
             title: "Publish"
         ) {
-            self.updateTodo(title: title=="" ? Date().formatDate(Date.now, using: .month_day_text) : title, date: Date.now, status: status, image: image, todo: db, emotions: Int16(emotions), weathers: Int16(weathers), text_align: text_align, text_spacing: Int16(text_spacing))
+            self.updateTodo(title: title=="" ? Date().formatDate(Date.now, locale: locale) : title, date: Date.now, status: status, image: image, todo: db, emotions: Int16(emotions), weathers: Int16(weathers), text_align: text_align, text_spacing: Int16(text_spacing))
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 Drops.show(drop)
                 donedone.toggle()

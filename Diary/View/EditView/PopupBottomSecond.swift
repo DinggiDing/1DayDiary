@@ -9,6 +9,8 @@ import SwiftUI
 
 struct PopupBottomSecond: View {
     
+    @Environment(\.locale) var locale: Locale
+
     @Binding var isPresented: Bool
     @Binding var ispreint2: Int
     
@@ -26,7 +28,8 @@ struct PopupBottomSecond: View {
             items: Mockdata2.textnames,
             icons: Mockdata2.iconImageNames,
             didTap: $didTap,
-            columns: columns
+            columns: columns,
+            locale: locale
         ) { index in
             handleTap(index: index)
         }

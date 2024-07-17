@@ -12,6 +12,7 @@ import OrderedCollections
 struct MemoryMonthView: View {
     
     @Environment(\.dismiss) var dismiss
+    @Environment(\.locale) var locale: Locale
 
     
     var titlestring: String
@@ -61,7 +62,7 @@ struct MemoryMonthView: View {
                                         .foregroundStyle(.black)
                                         .lineLimit(3)
                                         .multilineTextAlignment(.leading)
-                                        .font(.Arita_buriBold_edt)
+                                        .font(Font.Arita_buriBold_edt(locale: locale))
                                         .frame(width: AppConfig.homeWidth/2-1)
                                         .blur(radius: 3)
                                         .clipped()
@@ -74,7 +75,7 @@ struct MemoryMonthView: View {
                                 VStack {
                                     Spacer()
                                     HStack {
-                                        Text("\(index)월")
+                                        Text("\(index)")
                                             .foregroundStyle(.white)
                                             .font(.custom("SUIT-Bold", size: 16))
                                         Spacer()

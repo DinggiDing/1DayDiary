@@ -8,9 +8,11 @@
 import SwiftUI
 import Kingfisher
 import CoreData
+import Photos
 
 struct ContentView: View {
     
+    @Environment(\.locale) var locale: Locale
     @State var isShowingEditForm: Bool = false
     
     /// coredata
@@ -50,12 +52,10 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             ZStack(alignment: .top) {
-                
                 ScrollView(content: {
                     ZStack {
                         VStack {
 //                            Spacer().frame(height: 36)
-
                             if todos.isEmpty {
                                 
                                 HStack {
@@ -75,7 +75,7 @@ struct ContentView: View {
                                         .aspectRatio(contentMode: .fit)
                                         .frame(width: 5, height: 5)
                                     Text(Date().checkDateWithinRange(date: Date.now), format: .dateTime.day(.twoDigits).month(.twoDigits))
-                                        .font(.custom("SUIT-Semibold", size: 16))
+                                        .font(Font.SUIT_SemiBold_16(locale: locale))
                                         .foregroundStyle(.accent)
                                    
                                     Spacer()
@@ -102,7 +102,7 @@ struct ContentView: View {
                                             .aspectRatio(contentMode: .fit)
                                             .frame(width: 5, height: 5)
                                         Text(Date().checkDateWithinRange(date: Date.now), format: .dateTime.day(.twoDigits).month(.twoDigits))
-                                            .font(.custom("SUIT-Semibold", size: 16))
+                                            .font(Font.SUIT_SemiBold_16(locale: locale))
                                             .foregroundStyle(.accent)
                                         
                                         Spacer()
@@ -135,12 +135,12 @@ struct ContentView: View {
                                                 
                                                 if Date().checkBoolDateIsWithinRange(date: todo.date!) {
                                                     Text(Date().checkDateWithinRange(date: Date.now), format: .dateTime.day(.twoDigits).month(.twoDigits))
-                                                        .font(.custom("SUIT-Semibold", size: 16))
+                                                        .font(Font.SUIT_SemiBold_16(locale: locale))
                                                         .foregroundStyle(.accent)
                                                 }
                                                 else {
                                                     Text(todo.date ?? Date.now, format: .dateTime.day(.twoDigits).month(.twoDigits))
-                                                        .font(.SUIT_Regular)
+                                                        .font(Font.SUIT_Regular(locale: locale))
                                                         .foregroundColor(.gray)
                                                 }
                                                 
@@ -177,14 +177,8 @@ struct ContentView: View {
                                                         ScrollView(.horizontal) {
                                                             LazyHGrid(rows: columns, spacing: 10) {
                                                                 ForEach(todo.image, id: \.self) { images in
-                                                                    KFImage.url(images)
-                                                                        .placeholder { //플레이스 홀더 설정
-                                                                              Image(systemName: "photo")
-                                                                          }.retry(maxCount: 3, interval: .seconds(5))
-                                                                        .resizable()
-                                                                        .scaledToFill()
-                                                                        .frame(width: 119, height: 153)
-                                                                        .clipped()
+                                                                    ContentImageView(imagePath: images)
+
                                                                 }
                                                             }.frame(height: 150)
                                                         }
@@ -237,7 +231,11 @@ struct ContentView: View {
                 }
                 isHiding = false
                 
-                print("+++++++++++++ \(todos.first?.image)")
+//                let status = PHPhotoLibrary.authorizationStatus(for: .readWrite)
+                
+                // Local photo 현재 권한이 있는지 유무 확인
+                PHPhotoLibrary.authorizationStatus(for: .readWrite)
+//                print("STATUS : \(status)")
             }
             
             .navigationDestination(isPresented: $isShowingEditForm, destination: {
@@ -255,4 +253,35 @@ struct ContentView: View {
 
 #Preview {
     MainView()
+}
+
+
+struct ContentImageView: View {
+    let imagePath: URL
+
+    var body: some View {
+        VStack {
+            KFImage(imagePath)
+                .placeholder { // 플레이스 홀더 설정
+                    ProgressView()
+                }
+                .retry(maxCount: 10, interval: .seconds(5))
+                .resizable()
+                .scaledToFill()
+                .frame(width: 119, height: 153)
+                .clipped()
+//            AsyncImage(url: imagePath, content: { image in
+//                image.resizable()
+//                    .scaledToFill()
+//                    .frame(width: 119, height: 153)
+//                    .clipped()
+//                
+//            }, placeholder: {
+//                ProgressView()
+//                
+//            })
+                        
+        }
+        
+    }
 }

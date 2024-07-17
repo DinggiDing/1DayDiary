@@ -26,7 +26,7 @@ struct MediaCell: View {
                                 .scaledToFill()
                                 .onAppear {
                                     url_array.append(viewModel.imageUrl!)
-                                    
+//                                    
                                     /// 중복 제거
                                     url_array = removeDuplicate(url_array)
                                 }

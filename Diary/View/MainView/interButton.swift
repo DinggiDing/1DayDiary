@@ -41,17 +41,48 @@ struct interButton: View {
                     .foregroundStyle(.white)
             }
         }
-        .animation(.spring(response: 0.4, dampingFraction: 0.6))
         .scaleEffect(Hpress ? 0.8 : 1)
-        .gesture(
-            TapGesture()
-                .onEnded { _ in
-                    Hpress = true
-                    DispatchQueue.main.asyncAfter(deadline: .now()+0.15, execute: {
-                        Hpress.toggle()
-                        isShowingEditForm.toggle()
+        .pressEvents {
+            // On press
+            withAnimation(.easeInOut(duration: 0.1)) {
+                Hpress = true
+                DispatchQueue.main.asyncAfter(deadline: .now()+0.2, execute: {
+                    isShowingEditForm.toggle()
+                })
+            }
+        } onRelease: {
+            withAnimation {
+                Hpress = false
+                
+            }
+        }
+    }
+}
+
+struct ButtonPress: ViewModifier {
+    var onPress: () -> Void
+    var onRelease: () -> Void
+    
+    func body(content: Content) -> some View {
+        content
+            .simultaneousGesture(
+                DragGesture(minimumDistance: 0)
+                    .onChanged({ _ in
+                        onPress()
                     })
-                }
-        )
+                    .onEnded({ _ in
+                        onRelease()
+                    })
+            )
+    }
+}
+
+extension View {
+    func pressEvents(onPress: @escaping (() -> Void), onRelease: @escaping (() -> Void)) -> some View {
+        modifier(ButtonPress(onPress: {
+            onPress()
+        }, onRelease: {
+            onRelease()
+        }))
     }
 }

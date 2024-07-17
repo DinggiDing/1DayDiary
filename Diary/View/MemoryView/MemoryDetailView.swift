@@ -26,6 +26,7 @@ struct MemoryDetailView: View {
     @AppStorage("MyTitlefontValue") private var titlefontvalue: String = "Arita-buri-Bold_OTF"
 
     @Environment(\.dismiss) var dismiss
+    @Environment(\.locale) var locale: Locale
 
     
     init(db: DB_core) {
@@ -46,7 +47,7 @@ struct MemoryDetailView: View {
                             HStack {
                                 HStack(spacing: 5) {
                                     Text(db.date!, format: .dateTime.day(.twoDigits).month(.twoDigits))
-                                        .font(.SUIT_Regular)
+                                        .font(Font.SUIT_Regular(locale: locale))
                                         .foregroundStyle(Color("gray3"))
                                     
                                 }

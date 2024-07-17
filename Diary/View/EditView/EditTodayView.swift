@@ -46,6 +46,7 @@ struct EditTodayView: View {
 
     @AppStorage("MyfontValue") private var fontvalue: String = "Arita-buri-Medium_OTF"
     @AppStorage("MyTitlefontValue") private var titlefontvalue: String = "Arita-buri-Bold_OTF"
+    @Environment(\.locale) var locale: Locale
 
 
     
@@ -65,7 +66,7 @@ struct EditTodayView: View {
                                     HStack {
                                         HStack(spacing: 5) {
                                             Text(db.date!, format: .dateTime.day(.twoDigits).month(.twoDigits))
-                                                .font(.SUIT_Regular)
+                                                .font(Font.SUIT_Regular(locale: locale))
                                                 .foregroundStyle(Color("gray3"))
                                             
                                             if ispopups != 0 {
@@ -176,7 +177,7 @@ struct EditTodayView: View {
                                         if maintext.isEmpty {
                                             VStack {
                                                 Text("Empty")
-                                                    .font(.Arita_buriMedium)
+                                                    .font(Font.Arita_buriMedium(locale: locale))
                                                     .lineSpacing(/*@START_MENU_TOKEN@*/10.0/*@END_MENU_TOKEN@*/)
                                                     .foregroundStyle(Color.gray.opacity(0.55))
                                                     .padding(.top, 10)

@@ -44,7 +44,7 @@ struct interButton: View {
         .scaleEffect(Hpress ? 0.8 : 1)
         .pressEvents {
             // On press
-            withAnimation(.easeInOut(duration: 0.1)) {
+            withAnimation(.easeInOut(duration: 0.25)) {
                 Hpress = true
                 DispatchQueue.main.asyncAfter(deadline: .now()+0.2, execute: {
                     isShowingEditForm.toggle()

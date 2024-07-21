@@ -1,5 +1,5 @@
 {
-  "originHash" : "e93b0b493a9dc027b508b879a1af7fee8fe8246fad9fc254067975686c0bb44e",
+  "originHash" : "1d1e8167848bba9e228b7b6804a4b1d16f743b28c98abf3eca7da191417e4652",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -197,15 +197,6 @@
       "state" : {
         "revision" : "3bef9a21e2bcf1d0f078ddf6731c3c8996f32c3e",
         "version" : "1.4.0"
-      }
-    },
-    {
-      "identity" : "url-image",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/dmytro-anokhin/url-image",
-      "state" : {
-        "revision" : "4042f955f1fdff00ced85545e1eecdbf969b5cd0",
-        "version" : "3.1.1"
       }
     }
   ],

@@ -583,7 +583,6 @@
 				7E2B8B5B2BF24CDD008826EB /* XCRemoteSwiftPackageReference "ChartView" */,
 				7E1619812BFCEFF60068FF0D /* XCRemoteSwiftPackageReference "swiftui-introspect" */,
 				7E852D472C37E52F00777A34 /* XCRemoteSwiftPackageReference "LPNotiSys" */,
-				7E3F98D42C3D2A3C009632AF /* XCRemoteSwiftPackageReference "url-image" */,
 			);
 			productRefGroup = 7E1104B92B8B64500012DFD4 /* Products */;
 			projectDirPath = "";
@@ -1106,14 +1105,6 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.7.0;
-			};
-		};
-		7E3F98D42C3D2A3C009632AF /* XCRemoteSwiftPackageReference "url-image" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/dmytro-anokhin/url-image";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.1.1;
 			};
 		};
 		7E852D472C37E52F00777A34 /* XCRemoteSwiftPackageReference "LPNotiSys" */ = {

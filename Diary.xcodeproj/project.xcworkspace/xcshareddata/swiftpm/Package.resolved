@@ -1,5 +1,5 @@
 {
-  "originHash" : "1d1e8167848bba9e228b7b6804a4b1d16f743b28c98abf3eca7da191417e4652",
+  "originHash" : "a1033c7016a37631c5456f7ffb243c490a36f1cc7b29fb449bc6f3697c4655fc",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -152,6 +152,15 @@
       "state" : {
         "revision" : "b7e1104502eca3a213b46303391ca4d3bc8ddec1",
         "version" : "2.30910.0"
+      }
+    },
+    {
+      "identity" : "oneddcontent",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/DinggiDing/OneDDContent.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "118b0a6e22f18568da8d8684e098627182845594"
       }
     },
     {

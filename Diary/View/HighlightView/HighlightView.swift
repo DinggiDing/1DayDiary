@@ -9,6 +9,7 @@ import SwiftUI
 import Kingfisher
 import Charts
 import SwiftUICharts
+import OneDDContent
 
 struct HighlightView: View {
     
@@ -28,11 +29,16 @@ struct HighlightView: View {
     
     @AppStorage("MyfontValue") private var fontvalue: String = "Arita-buri-Medium_OTF"
     @Environment(\.locale) var locale: Locale
-
     
     var body: some View {
         NavigationView(content: {
-            ScrollView {
+            ScrollView() {
+                VStack(alignment: .center) {
+                    RT_RethinkVRet()
+                        .frame(height: 250)
+                        .shadow(color: .black.opacity(0.08), radius: 5, x: 0, y: 5)
+                }
+                
                 if !todos.isEmpty {
                     VStack {
                         
@@ -313,6 +319,7 @@ struct HighlightView: View {
             .navigationTitle("Yours")
         })
         .onAppear {
+            UINavigationBar.setAnimationsEnabled(true)
             if !todos.isEmpty {
                 
                 todoarr = Array(todos)
@@ -324,6 +331,9 @@ struct HighlightView: View {
                 
                 todoarrfilter_count = arrfilter(array: todoarr)
             }
+        }
+        .onDisappear {
+            UINavigationBar.setAnimationsEnabled(false)
         }
         .onReceive(todos.publisher.collect().receive(on: DispatchQueue.main), perform: { objects in
             if !todos.isEmpty {

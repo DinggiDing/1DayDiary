@@ -91,6 +91,9 @@ extension Font {
             return .custom("SUIT-Regular", size: 20)
         }
     }
+    
+    
+    
     static func SUITE_Medium(locale: Locale) -> Font {
         switch locale.identifier {
         case "ja":

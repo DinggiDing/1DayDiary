@@ -47,6 +47,9 @@
     "Count" : {
 
     },
+    "Decorate your precious 24-hour records with fonts and photos, and store them securely with iCloud. Access past entries and analyze your memories with data insights!" : {
+
+    },
     "Delete Account" : {
 
     },
@@ -88,9 +91,6 @@
     "General" : {
 
     },
-    "Go to Login" : {
-
-    },
     "Help and FAQ" : {
 
     },
@@ -129,9 +129,6 @@
     "Setting" : {
 
     },
-    "Sign In" : {
-
-    },
     "Sign in with Apple" : {
 
     },
@@ -154,9 +151,6 @@
 
     },
     "Writing Now" : {
-
-    },
-    "You're not logged in." : {
 
     },
     "Yours" : {
@@ -496,6 +490,29 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "아픔"
+          }
+        }
+      }
+    },
+    "오늘 하루" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Today's"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "今日一日"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "오늘 하루"
           }
         }
       }

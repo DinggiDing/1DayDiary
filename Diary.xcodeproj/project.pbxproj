@@ -50,6 +50,7 @@
 		7E4027712BE3BC3F00EDBF53 /* MemoryDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4027702BE3BC3F00EDBF53 /* MemoryDayView.swift */; };
 		7E4027732BE3D68800EDBF53 /* MemoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4027722BE3D68800EDBF53 /* MemoryDetailView.swift */; };
 		7E5CA7A92BB58DE200F2FEAB /* MemoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5CA7A82BB58DE200F2FEAB /* MemoryView.swift */; };
+		7E5DC46F2C4CFDD80000FDEA /* OneDDContent in Frameworks */ = {isa = PBXBuildFile; productRef = 7E5DC46E2C4CFDD80000FDEA /* OneDDContent */; };
 		7E638C8B2BB069AE0036B863 /* ShowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E638C8A2BB069AE0036B863 /* ShowView.swift */; };
 		7E763EF42B935BED00A1BF47 /* Diarydb.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7E763EF22B935BED00A1BF47 /* Diarydb.xcdatamodeld */; };
 		7E763EFF2B935CCC00A1BF47 /* DB_core+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E763EFD2B935CCC00A1BF47 /* DB_core+CoreDataClass.swift */; };
@@ -91,6 +92,7 @@
 		7ED620E72BEFEC7800F2398C /* HighlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED620E62BEFEC7800F2398C /* HighlightView.swift */; };
 		7EE31B732B90B8F800F5A287 /* Arita-buriM.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7EE31B6E2B90B8F800F5A287 /* Arita-buriM.otf */; };
 		7EE31B742B90B8F800F5A287 /* Arita-buriSB.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7EE31B6F2B90B8F800F5A287 /* Arita-buriSB.otf */; };
+		7EEFC0EA2C5B712400DE193B /* CountdownStringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEFC0E92C5B712400DE193B /* CountdownStringView.swift */; };
 		7EF834CE2BE4A1240037D016 /* BitCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 7EF834CD2BE4A1240037D016 /* BitCollections */; };
 		7EF834D02BE4A1240037D016 /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = 7EF834CF2BE4A1240037D016 /* Collections */; };
 		7EF834D82BE4A1240037D016 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 7EF834D72BE4A1240037D016 /* OrderedCollections */; };
@@ -197,6 +199,7 @@
 		7EE31B6E2B90B8F800F5A287 /* Arita-buriM.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Arita-buriM.otf"; sourceTree = "<group>"; };
 		7EE31B6F2B90B8F800F5A287 /* Arita-buriSB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Arita-buriSB.otf"; sourceTree = "<group>"; };
 		7EE31B752B90B94000F5A287 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		7EEFC0E92C5B712400DE193B /* CountdownStringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownStringView.swift; sourceTree = "<group>"; };
 		7EF9866E2BA5E3BE00A62A93 /* publishButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = publishButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -217,6 +220,7 @@
 				7E2B8B612BF26154008826EB /* SwiftUICharts in Frameworks */,
 				7E163B282BE76D630019609D /* FirebaseAuth in Frameworks */,
 				7EF834CE2BE4A1240037D016 /* BitCollections in Frameworks */,
+				7E5DC46F2C4CFDD80000FDEA /* OneDDContent in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,6 +447,7 @@
 				7ED620E62BEFEC7800F2398C /* HighlightView.swift */,
 				7E0138442BF3A05700012D1C /* CircularProgressView.swift */,
 				7E29921B2C1F17CD00EDC195 /* CountdownView.swift */,
+				7EEFC0E92C5B712400DE193B /* CountdownStringView.swift */,
 			);
 			path = HighlightView;
 			sourceTree = "<group>";
@@ -498,6 +503,7 @@
 				7E2B8B602BF26154008826EB /* SwiftUICharts */,
 				7E1619822BFCEFF60068FF0D /* SwiftUIIntrospect */,
 				7E852D482C37E52F00777A34 /* LPNotiSys */,
+				7E5DC46E2C4CFDD80000FDEA /* OneDDContent */,
 			);
 			productName = Diary;
 			productReference = 7E1104B82B8B64500012DFD4 /* Diary.app */;
@@ -583,6 +589,7 @@
 				7E2B8B5B2BF24CDD008826EB /* XCRemoteSwiftPackageReference "ChartView" */,
 				7E1619812BFCEFF60068FF0D /* XCRemoteSwiftPackageReference "swiftui-introspect" */,
 				7E852D472C37E52F00777A34 /* XCRemoteSwiftPackageReference "LPNotiSys" */,
+				7E5DC46D2C4CFDD80000FDEA /* XCRemoteSwiftPackageReference "OneDDContent" */,
 			);
 			productRefGroup = 7E1104B92B8B64500012DFD4 /* Products */;
 			projectDirPath = "";
@@ -670,6 +677,7 @@
 				7E638C8B2BB069AE0036B863 /* ShowView.swift in Sources */,
 				7E763F022B935D3200A1BF47 /* DataManager.swift in Sources */,
 				7EF9866F2BA5E3BE00A62A93 /* publishButton.swift in Sources */,
+				7EEFC0EA2C5B712400DE193B /* CountdownStringView.swift in Sources */,
 				7EA26ACB2C0C64BB00E1DAFC /* WebView.swift in Sources */,
 				7E763EFF2B935CCC00A1BF47 /* DB_core+CoreDataClass.swift in Sources */,
 				7ECED34E2C184748007C7998 /* Utility.swift in Sources */,
@@ -881,7 +889,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.3;
+				MARKETING_VERSION = 1.1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.seongjae.Diary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -920,7 +928,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.3;
+				MARKETING_VERSION = 1.1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.seongjae.Diary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1107,12 +1115,20 @@
 				minimumVersion = 1.7.0;
 			};
 		};
+		7E5DC46D2C4CFDD80000FDEA /* XCRemoteSwiftPackageReference "OneDDContent" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/DinggiDing/OneDDContent.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.1.0;
+			};
+		};
 		7E852D472C37E52F00777A34 /* XCRemoteSwiftPackageReference "LPNotiSys" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/DinggiDing/LPNotiSys";
 			requirement = {
 				kind = exactVersion;
-				version = 1.1.0;
+				version = 1.2.1;
 			};
 		};
 		7EF834CC2BE4A1240037D016 /* XCRemoteSwiftPackageReference "swift-collections" */ = {
@@ -1160,6 +1176,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7E34C90F2BA821F10021A56D /* XCRemoteSwiftPackageReference "Drops" */;
 			productName = Drops;
+		};
+		7E5DC46E2C4CFDD80000FDEA /* OneDDContent */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7E5DC46D2C4CFDD80000FDEA /* XCRemoteSwiftPackageReference "OneDDContent" */;
+			productName = OneDDContent;
 		};
 		7E852D482C37E52F00777A34 /* LPNotiSys */ = {
 			isa = XCSwiftPackageProductDependency;

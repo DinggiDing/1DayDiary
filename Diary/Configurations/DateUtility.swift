@@ -101,6 +101,25 @@ extension Date {
         return startDate
     }
     
+    func checkDateWithONEDDCONTENT(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "YYYYMMDD"
+        
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.hour], from: Date.now)
+        let hour = components.hour ?? 0
+ 
+        var startDate = Date()
+        
+        if hour < 11 {
+            startDate = Calendar.current.date(byAdding: .day, value: -1, to: Date())!
+            return formatter.string(from: startDate)
+
+        } else {
+            return formatter.string(from: date)
+        }
+    }
+    
     func formatDate(_ date: Date, using format: DateFormat_date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = format.rawValue

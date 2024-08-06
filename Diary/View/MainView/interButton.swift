@@ -41,21 +41,32 @@ struct interButton: View {
                     .foregroundStyle(.white)
             }
         }
-        .scaleEffect(Hpress ? 0.8 : 1)
-        .pressEvents {
-            // On press
-            withAnimation(.easeInOut(duration: 0.1)) {
-                Hpress = true
-                DispatchQueue.main.asyncAfter(deadline: .now()+0.2, execute: {
-                    isShowingEditForm.toggle()
-                })
-            }
-        } onRelease: {
-            withAnimation {
-                Hpress = false
-                
-            }
+        
+        .scaleEffect(Hpress ? 0.85 : 1)
+        .animation(.interpolatingSpring(stiffness: 1500, damping: 20), value: Hpress)
+        .onTapGesture {
+            DispatchQueue.main.asyncAfter(deadline: .now()+0.4, execute: {
+                isShowingEditForm.toggle()
+                Hpress.toggle()
+
+            })
+            Hpress.toggle()
+            
         }
+//        .pressEvents {
+//            // On press
+//            withAnimation(.easeInOut(duration: 0.25)) {
+//                Hpress = true
+//                DispatchQueue.main.asyncAfter(deadline: .now()+0.2, execute: {
+//                    isShowingEditForm.toggle()
+//                })
+//            }
+//        } onRelease: {
+//            withAnimation {
+//                Hpress = false
+//                
+//            }
+//        }
     }
 }
 

@@ -43,9 +43,9 @@ struct interButton: View {
         }
         
         .scaleEffect(Hpress ? 0.85 : 1)
-        .animation(.interpolatingSpring(stiffness: 170, damping: 8).delay(0.2), value: Hpress)
+        .animation(.interpolatingSpring(stiffness: 1500, damping: 20), value: Hpress)
         .onTapGesture {
-            DispatchQueue.main.asyncAfter(deadline: .now()+0.65, execute: {
+            DispatchQueue.main.asyncAfter(deadline: .now()+0.4, execute: {
                 isShowingEditForm.toggle()
                 Hpress.toggle()
 

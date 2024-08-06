@@ -38,45 +38,55 @@ struct AuthenticatedView<Content, Unauthenticated>: View where Content: View, Un
   }
 
     @State var splash = false
+    @State var animation1 = false
+    @AppStorage("reflection1") var reflection1: String = ""
+    @AppStorage("reflection2") var reflection2: String = ""
+    @AppStorage("reflection3") var reflection3: String = ""
+    @AppStorage("reflection4") var reflection4: String = ""
+    @AppStorage("reflection5") var reflection5: String = ""
+    @AppStorage("reflectionDate") var reflectionDate = ""
 
 
   var body: some View {
     switch viewModel.authenticationState {
     case .unauthenticated, .authenticating:
-        
-      VStack {
-        if let unauthenticated = unauthenticated {
-          unauthenticated
-        }
-        else {
-          Text("You're not logged in.")
-        }
-
-          VStack {
-              Spacer()
-              Button(action: {
-                  viewModel.reset()
-                  presentingLoginScreen.toggle()
-
-              }, label: {
-                  Text("Go to Login")
-                      .foregroundStyle(Color.primary)
-                      .frame(height: 40)
-                      .frame(maxWidth: .infinity)
-                      .contentShape(.capsule)
-                      .background {
-                          Capsule()
-                              .stroke(Color.primary, lineWidth: 0.5)
-                      }
-                      .padding(.bottom, 40)
-                      .padding(.horizontal, 15)
-              })
-          }
-      }
-      .sheet(isPresented: $presentingLoginScreen) {
         AppleSignView()
           .environmentObject(viewModel)
-      }
+//      VStack {
+//        if let unauthenticated = unauthenticated {
+//          unauthenticated
+//        }
+//        else {
+//          Text("You're not logged in.")
+//        }
+//          
+          
+
+//          VStack {
+//              Spacer()
+//              Button(action: {
+//                  viewModel.reset()
+//                  presentingLoginScreen.toggle()
+//
+//              }, label: {
+//                  Text("Go to Login")
+//                      .foregroundStyle(Color.primary)
+//                      .frame(height: 40)
+//                      .frame(maxWidth: .infinity)
+//                      .contentShape(.capsule)
+//                      .background {
+//                          Capsule()
+//                              .stroke(Color.primary, lineWidth: 0.5)
+//                      }
+//                      .padding(.bottom, 40)
+//                      .padding(.horizontal, 15)
+//              })
+//          }
+//      }
+//      .sheet(isPresented: $presentingLoginScreen) {
+//        AppleSignView()
+//          .environmentObject(viewModel)
+//      }
     case .authenticated:
       VStack {
           NavigationLink(isActive: $splash, destination: {
@@ -93,25 +103,27 @@ struct AuthenticatedView<Content, Unauthenticated>: View where Content: View, Un
                       Spacer()
                       VStack {
                           Spacer()
-                      HStack {
+                          HStack {
                               Text("Welcome to ...")
                                   .font(.custom("SUIT-Medium", size: 32))
                               Spacer()
                           }
-                          HStack {
-                              Text("1DayDiary")
-                                  .font(.custom("SUIT-Bold", size: 46))
-                                  .foregroundStyle(AngularGradient(gradient: Gradient(colors: [Color.mainpoint, Color.maingra]),
-                                                                   center: .bottomLeading,
-                                                                  angle: .degrees(0 + 45)))
-                              Spacer()
-                              
+                          if animation1 {
+                              HStack {
+                                  Text("1DayDiary")
+                                      .font(.custom("SUIT-Bold", size: 46))
+                                      .foregroundStyle(AngularGradient(gradient: Gradient(colors: [Color.mainpoint, Color.maingra]),
+                                                                       center: .bottomLeading,
+                                                                       angle: .degrees(0 + 45)))
+                                  Spacer()
+                              }
                           }
                           Spacer()
                           Spacer()
                           Spacer()
                       }
                       .foregroundStyle(.black)
+                      .animation(.easeInOut)
                       Spacer()
                   }
                   .frame(width: 280)
@@ -123,7 +135,17 @@ struct AuthenticatedView<Content, Unauthenticated>: View where Content: View, Un
 //          .environment(\.managedObjectContext, manager.container.viewContext)
       }
       .onAppear {
-          DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
+          if reflectionDate != Date().checkDateWithONEDDCONTENT(Date()) {
+              reflection1 = ""
+              reflection2 = ""
+              reflection3 = ""
+              reflection4 = ""
+              reflection5 = ""
+          }
+          DispatchQueue.main.asyncAfter(deadline: .now()+0.75) {
+              animation1 = true
+          }
+          DispatchQueue.main.asyncAfter(deadline: .now()+1.5) {
               splash = true
           }
       }

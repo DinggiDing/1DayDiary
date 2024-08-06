@@ -77,7 +77,9 @@ struct ContentView: View {
                                     Text(Date().checkDateWithinRange(date: Date.now), format: .dateTime.day(.twoDigits).month(.twoDigits))
                                         .font(Font.SUIT_SemiBold_16(locale: locale))
                                         .foregroundStyle(.accent)
-                                   
+                                    CountdownStringView()
+                                        .border(.red)
+                                    
                                     Spacer()
                                 }.padding(.bottom, 12)
                                     .rotationEffect(.radians(.pi))
@@ -104,6 +106,7 @@ struct ContentView: View {
                                         Text(Date().checkDateWithinRange(date: Date.now), format: .dateTime.day(.twoDigits).month(.twoDigits))
                                             .font(Font.SUIT_SemiBold_16(locale: locale))
                                             .foregroundStyle(.accent)
+                                        CountdownStringView()
                                         
                                         Spacer()
                                     }.padding(.bottom, 12)
@@ -137,13 +140,14 @@ struct ContentView: View {
                                                     Text(Date().checkDateWithinRange(date: Date.now), format: .dateTime.day(.twoDigits).month(.twoDigits))
                                                         .font(Font.SUIT_SemiBold_16(locale: locale))
                                                         .foregroundStyle(.accent)
+
                                                 }
                                                 else {
                                                     Text(todo.date ?? Date.now, format: .dateTime.day(.twoDigits).month(.twoDigits))
                                                         .font(Font.SUIT_Regular(locale: locale))
                                                         .foregroundColor(.gray)
                                                 }
-                                                
+                                                 
                                                 if todo.weathers != 0 {
                                                     Image(systemName: Mockdata.iconImageNames[Int(todo.weathers)-1])
                                                         .foregroundStyle(Mockdata.colors[Int(todo.weathers)-1])

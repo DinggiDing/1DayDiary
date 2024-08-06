@@ -11,8 +11,6 @@ import Combine
 struct CountdownView: View {
 //    @State private var remainingTime: TimeInterval = nextDayElevenAM().timeIntervalSinceNow
 //    @State private var timerSubscription: AnyCancellable?
-    @State private var weightpercent: Double = 0.9
-    
     @StateObject private var viewModel = CountdownViewModel()
     @Environment(\.locale) var locale: Locale
 
@@ -21,28 +19,36 @@ struct CountdownView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 15.0).foregroundStyle(.whitegray)
                 .shadow(color: .black.opacity(0.08), radius: 5, x: 0, y: 5)
-            VStack {
+            VStack(alignment: .leading) {
                 
                 Text("오늘의 기억을 기록할 남은 시간")
-                    .font(Font.SUITE_Medium(locale: locale))
+                    .font(.subheadline)
+                    .foregroundStyle(.darkblue)
                     .padding(4)
+                
                 if viewModel.timeRemaining.isEmpty {
                     ProgressView()
-                        .padding()
                 } else {
                     Text(viewModel.timeRemaining)
                         .font(.largeTitle)
+                        .fontWeight(.regular)
                         .monospacedDigit()
                 }
+                
                 ProgressView(value: viewModel.progress)
                     .progressViewStyle(LinearProgressViewStyle())
-                    .tint(.maingra)
-                    .padding()
+                    .tint(.darkblue)
+                    .scaleEffect(x: 1, y: 4, anchor: .center)
+                    .padding(.vertical)
+                    .animation(.easeInOut)
+
             }
             .padding()
         }
-        .frame(width: AppConfig.homeWidth-30, height: AppConfig.homeHeight/3)
+        .frame(width: AppConfig.homeWidth-30, height: 100)
 
+        .padding()
+        .padding(.vertical, 16)
 //        .frame(width: AppConfig.countdownWidth)
     }
 

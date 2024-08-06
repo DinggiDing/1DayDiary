@@ -36,7 +36,7 @@ struct HighlightView: View {
                 VStack(alignment: .center) {
                     RT_RethinkVRet()
                         .frame(height: 250)
-
+                        .shadow(color: .black.opacity(0.08), radius: 5, x: 0, y: 5)
                 }
                 
                 if !todos.isEmpty {

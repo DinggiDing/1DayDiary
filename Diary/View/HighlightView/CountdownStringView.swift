@@ -8,8 +8,20 @@
 import SwiftUI
 
 struct CountdownStringView: View {
+    
+    @StateObject private var viewModel = CountdownViewModel()
+    @Environment(\.locale) var locale: Locale
+
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        if viewModel.timeRemaining.isEmpty {
+            ProgressView()
+        } else {
+            Text(viewModel.timeRemaining)
+                .font(Font.SUIT_SemiBold_16(locale: locale))
+                .foregroundStyle(.accent)
+                .monospacedDigit()
+        }
     }
 }
 

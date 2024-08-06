@@ -9,6 +9,7 @@ import SwiftUI
 import ExyteMediaPicker
 import TipKit
 import SwiftUIIntrospect
+import OneDDContent
 
 struct EditView2: View {
     
@@ -38,6 +39,8 @@ struct EditView2: View {
     @State private var ispopups2: Int = 0
     @State private var donedone: Bool = false
     
+    @State private var popups_reflect: Bool = false
+    
     @State private var url : [URL] = []
     
     private let tip = FavoriteBackyardTip()
@@ -45,6 +48,7 @@ struct EditView2: View {
     @AppStorage("MyfontValue") private var fontvalue: String = "Arita-buri-Medium_OTF"
     @AppStorage("MyTitlefontValue") private var titlefontvalue: String = "Arita-buri-Bold_OTF"
     @Environment(\.locale) var locale: Locale
+    @AppStorage("reflectionDate") var reflectionDate = ""
 
     
     init(isPresented: Binding<Bool>, isHiding: Binding<Bool>, isThirdTab: Bool) {
@@ -89,17 +93,45 @@ struct EditView2: View {
                                         }
                                         
                                     }
-                                    Spacer()
-                                }.padding(.bottom, 12)
-                                    .padding(.top, 42)
                                     .onTapGesture {
                                         popups.toggle()
                                     }
+                                    
+                                    Spacer()
+                                    if reflectionDate == Date().checkDateWithONEDDCONTENT(Date()) {
+                                        
+                                        HStack {
+                                            Image("icon_circle")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fill)
+                                                .frame(width: 20, height: 20)
+                                                .clipShape(Circle())
+                                            
+                                            Text("오늘 하루")
+                                                .font(.system(size: 11, weight: .regular))
+                                                .padding(.trailing, 10)
+                                            
+                                        }
+                                        .padding(6)
+                                        .background(Color.white)
+                                        .clipShape(Capsule())
+                                        .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 5)
+                                        .onTapGesture {
+                                            withAnimation(.interpolatingSpring(mass: 1, stiffness: 170, damping: 15, initialVelocity: 0)){
+                                                
+                                                popups_reflect.toggle()
+                                            }
+                                        }
+                                    }
+                                }.padding(.bottom, 12)
+                                    .padding(.top, 42)                                
+                                    .padding(.horizontal, 26)
+
+                                    
                                 
                                 HStack {
                                     Spacer()
                                     
-//                                    TextField(formatDate(checkIfDateIsWithinRangeSave(date: Date.now)), text: $title, axis: .vertical)
                                     TextField(Date().formatDate(Date().checkDateWithinRange(date: Date.now), locale: locale), text: $title, axis: .vertical)
                                         .font(.custom(titlefontvalue, size: 20))
                                         .frame(width: 280, alignment: .leading)
@@ -114,9 +146,14 @@ struct EditView2: View {
                                         }
                                     
                                     Spacer()
+                                }                                
+                                .padding(.horizontal, 26)
+
+                                
+                                if popups_reflect {
+                                    InD_SwiftUIView2()
                                 }
-                                
-                                
+                                                                
                                 if !medias.isEmpty {
                                     ScrollView(.horizontal) {
                                         LazyHGrid(rows: columns, spacing: 10) {
@@ -136,8 +173,9 @@ struct EditView2: View {
                                                 image_height = 150
                                             }
                                         }
+                                        .padding(.horizontal, 26)
+
                                 }
-                                
                                 
                                 HStack {
                                     Spacer()
@@ -174,10 +212,11 @@ struct EditView2: View {
                                     }
                                     Spacer()
                                 }
+                                .padding(.horizontal, 26)
                                 
                                 Spacer()
                                 
-                            }.frame(width: AppConfig.homeWidth-52)
+                            }.frame(width: AppConfig.homeWidth)
                                 .padding(.bottom, 44)
                         }
                     }
@@ -187,17 +226,27 @@ struct EditView2: View {
                             .foregroundStyle(.gray5)
                         Spacer()
                     }
-                    
-                    VStack {
-                        Spacer()
-                        HStack {
+
+//                    if popups_reflect {
+//                        
+//                        VStack {
+//                            Spacer()
+//                            InD_SwiftUIView()
+//                            
+//                        }.padding(.bottom, isThirdTab ? 56 : 6)
+//                            .ignoresSafeArea(.container)
+//                    } else {
+                        VStack {
                             Spacer()
-                            publishButton(title: $title, status: $maintext, image: $url, emotions: $ispopups2, weathers: $ispopups, text_align: $maintext_alignment, text_spacing: $maintext_linespacing, donedone: $isPresented)
-                            Spacer()
-                        }
-                    }.padding(.bottom, isThirdTab ? 56 : 6)
-                        .ignoresSafeArea(.keyboard)
-                    
+                            HStack {
+                                Spacer()
+                                
+                                publishButton(title: $title, status: $maintext, image: $url, emotions: $ispopups2, weathers: $ispopups, text_align: $maintext_alignment, text_spacing: $maintext_linespacing, donedone: $isPresented)
+                                Spacer()
+                            }
+                        }.padding(.bottom, isThirdTab ? 56 : 6)
+                            .ignoresSafeArea(.keyboard)
+//                    }
                 }
                 .fullScreenCover(isPresented: $ispresented_imgpicker, content: {
                     CustomizedMediaPicker(

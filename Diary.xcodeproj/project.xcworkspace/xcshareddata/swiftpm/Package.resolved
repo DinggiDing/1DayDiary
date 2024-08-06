@@ -141,8 +141,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/DinggiDing/LPNotiSys",
       "state" : {
-        "revision" : "0c2a3d2a3b0e24860f28e8d14048e848a67252e9",
-        "version" : "1.1.0"
+        "revision" : "5ba4d441f3df36fa7071fde5c8b4cd5326adc682",
+        "version" : "1.2.1"
       }
     },
     {
@@ -159,8 +159,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/DinggiDing/OneDDContent.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "118b0a6e22f18568da8d8684e098627182845594"
+        "revision" : "e3bd9bdc2157373556edadf31ea56342d23992cc",
+        "version" : "1.1.0"
       }
     },
     {
